@@ -51,7 +51,7 @@ def convert_list_to_string(org_list, separator = ''):
 full_password = convert_list_to_string(password, '')
 
 whatfor = input("Do czego jest to haslo? ")
-f = open("passwords.txt", "a")
+f = open("passwords.txt", "w+")
 f.write(whatfor+": "+full_password+"\n")
 f.close()
 print("Twoje haslo: "+full_password)
