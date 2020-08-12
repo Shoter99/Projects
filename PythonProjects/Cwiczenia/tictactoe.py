@@ -1,7 +1,8 @@
 #Tic Tac Toe Game
-
+global board
 board = [' ' for x in range(10)]
-
+global koniec 
+koniec = True
 def insert_letter(letter, pos):
     board[pos] = letter
 def space_is_free(pos):
@@ -63,12 +64,13 @@ def main(board):
                      
         gra = input('Czy chcesz grac ponownie (t/n)')
         gra = gra.lower()
+        global koniec
         print(gra)
-        if(gra == 't' or gra == 'tak'):
-            gra = True
-            pri
+        if(gra == 't' or koniec == 'tak'):
+            koniec = True
         else:
-            gra = False
+            koniec = False
 
-
-main(board)
+while(koniec):
+    main(board)
+    board = [' ' for x in range(10)]
