@@ -58,13 +58,15 @@ def main(board):
                 else:
                     print('Tym razem krzyzyk wygral!')
                     break
+        if board_is_full(board):
+            print()
                      
-        gra = input('Czy chcesz grac ponowinie (t/n)')
+        gra = input('Czy chcesz grac ponownie (t/n)')
         gra = gra.lower()
         print(gra)
         if(gra == 't' or gra == 'tak'):
             gra = True
-            board = [' ' for x in range(10)]
+            pri
         else:
             gra = False
 
