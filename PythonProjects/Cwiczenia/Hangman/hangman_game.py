@@ -21,18 +21,19 @@ FPS = 60
 clock = pygame.time.Clock()
 run = True
 #font
-LETTER_FONT = pygame.font.SysFont('comicsans', 40)
+LETTER_FONT = pygame.font.SysFont('Times New Roman', 32)
 #button variables
-RADIUS = 25 
+RADIUS = 25
 GAP = 15
 letters = []
-startx = round((WIDTH - (RADIUS * 2 + GAP)*10)/2)
+startx = round((WIDTH - (RADIUS * 2 + GAP)*12)/2)
 starty = 300
-A = 65
-for i in range(26):
-    x = startx + GAP * 2 + ((RADIUS * 2 + GAP) * (i % 10))
-    y = starty + ((i // 10) * (GAP + RADIUS * 2))
-    letters.append([x, y, chr(A + i), True])
+
+let = ['A','Ą','B','C','Ć','D','E','Ę','F','G','H','I','J','K','L','Ł','M','N','Ń','O','Ó','P','Q','R','S','Ś','T','U','W','X','Y','Z','Ź','Ż']
+for i in range(34):
+    x = startx + GAP * 2 + ((RADIUS * 2 + GAP) * (i % 12))
+    y = starty + ((i // 12) * (GAP + RADIUS * 2))
+    letters.append([x, y, let[i], True])
 
 def draw():
     win.fill(WHITE)
@@ -45,7 +46,7 @@ def draw():
             text = LETTER_FONT.render(ltr, 1, BLACK)
             win.blit(text, (x - text.get_width()/2, y - text.get_height()/2))
 
-    win.blit(images[hangman_status], (150, 50))
+    win.blit(images[hangman_status], (100, 50))
     pygame.display.update()
 while run:
     clock.tick(FPS)
