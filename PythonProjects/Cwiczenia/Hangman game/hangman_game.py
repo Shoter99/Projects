@@ -1,14 +1,14 @@
 import math
-import pygame
+import pygame as pg
 #display setup
-pygame.init()
+pg.init()
 WIDTH, HEIGHT = 800, 500
-win = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Hangman Game!")
+win = pg.display.set_mode((WIDTH, HEIGHT))
+pg.display.set_caption("Hangman Game!")
 #load images
 images = []
 for i in range(7):
-    image = pygame.image.load('hangman%d.png' % i)
+    image = pg.image.load('hangman%d.png' % i)
     images.append(image)
 print (images)
 #game variables
@@ -18,10 +18,10 @@ WHITE = (255,255,255)
 BLACK = (0,0,0)
 #game loop
 FPS = 60
-clock = pygame.time.Clock()
+clock = pg.time.Clock()
 run = True
 #font
-LETTER_FONT = pygame.font.SysFont('Times New Roman', 32)
+LETTER_FONT = pg.font.SysFont('Times New Roman', 32)
 #button variables
 RADIUS = 25
 GAP = 15
@@ -42,23 +42,23 @@ def draw():
     for letter in letters:
         x, y, ltr, visible = letter
         if visible:
-            pygame.draw.circle(win, BLACK, (x,y), RADIUS, 3)
+            pg.draw.circle(win, BLACK, (x,y), RADIUS, 3)
             text = LETTER_FONT.render(ltr, 1, BLACK)
             win.blit(text, (x - text.get_width()/2, y - text.get_height()/2))
 
     win.blit(images[hangman_status], (100, 50))
-    pygame.display.update()
+    pg.display.update()
 while run:
     clock.tick(FPS)
 
     draw()
     
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
             run = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            m_x, m_y = pygame.mouse.get_pos()
+        if event.type == pg.MOUSEBUTTONDOWN:
+            m_x, m_y = pg.mouse.get_pos()
             for letter in letters:
                 x, y, ltr, visible = letter
                 if visible:
@@ -67,4 +67,4 @@ while run:
                         letter[3] = False
 
 
-pygame.quit()
+pg.quit()
