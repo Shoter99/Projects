@@ -14,13 +14,12 @@ pg.display.set_caption("Hangman Game!")
 images = []
 for i in range(7):
     try:
-        mydir = os.path.dirname(__file__)
-        image = pg.image.load(os.path.join(mydir,r'data\hangman%d.jpg' % i))
+        image = pg.image.load('hangman%s.jpg' % i)
         images.append(image)
     except:
         print('Nie udało się załadować obrazku')
         pg.time.delay(3000)
-        print(mydir)
+        
 print (images)
 #font
 LETTER_FONT = pg.font.SysFont('Times New Roman', 24)
@@ -31,18 +30,15 @@ guessed = []
 password = []
 count = 0
 try:
-    mydir = os.path.dirname(__file__)
-    f = open(os.path.join(mydir,r'data\hasla.txt'), 'rt',encoding="utf-8")
+    f = open('hasla.txt', 'rt',encoding="utf-8")
 
     for x in f:
         password.append(x[:-1])
         count += 1
 except:
     print("Nie udało się załadowac tekstu")
-
-num = random.randint(0,count)
-
-
+print(count)
+num = random.randint(0,count-1)
 word = password[num]
 
 #colors
@@ -130,17 +126,19 @@ while run:
                 won = False
                 break
         if won:
-            write_messege("Udało ci się, wygrałeś")
+            write_messege("Zgadłeś hasło!")
             pg.time.delay(3000)
             guessed = []
             hangman_status = 0
-            rd = 1 
-            num = random.randint(0,count-rd)
+            password.pop(num)
+            rd = 1
+            num = random.randint(0,count - rd)
             rd += 1
             try:
                 word = password[num]
             except:
-                write_messege('Udało Ci się ukończyć grę!')
+                print("Koniec gry!")
+                write_messege("Udało Ci się wygrałeś!")
                 pg.time.delay(3000)
                 break
             won = True
@@ -153,7 +151,7 @@ while run:
             pg.time.delay(3000)
             guessed = []
             hangman_status = 0
-            num = random.randint(0,8)
+            num = random.randint(0, count)
             word = password[num]
             won = True
             win.fill(WHITE)
