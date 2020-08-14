@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['hangman.py'],
-             pathex=['I:\\Projects\\PythonProjects\\Hangman'],
+             pathex=['I:\\Projects\\PythonProjects\\Hangman\\Windows-hangman-cmd'],
              binaries=[],
              datas=[],
              hiddenimports=[],
