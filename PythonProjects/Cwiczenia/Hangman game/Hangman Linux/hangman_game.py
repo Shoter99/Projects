@@ -14,7 +14,7 @@ pg.display.set_caption("Hangman Game!")
 images = []
 for i in range(7):
     try:
-        image = pg.image.load('hangman%s.jpg' % i)
+        image = pg.image.load('hangman%s.png' % i)
         images.append(image)
     except:
         print('Nie udało się załadować obrazku')
@@ -75,7 +75,10 @@ def draw():
         else:
             display_word += "_ "
         text = WORD_FONT.render(display_word,1,BLACK)
-        win.blit(text,(400,100))
+        if (display_word == "KONSTANTYNOPOLITAŃCZYKOWIANECZKA"):
+            win.blit(text, (270,100))
+        else:
+            win.blit(text,(400,100))
 
 
     #draw buttons 
@@ -151,7 +154,7 @@ while run:
             pg.time.delay(3000)
             guessed = []
             hangman_status = 0
-            num = random.randint(0, count)
+            num = random.randint(0, count - 1)
             word = password[num]
             won = True
             win.fill(WHITE)
