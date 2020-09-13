@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1600015301 source:i:\projects\c++\projects\project\main.cpp
+	<iostream>
+	"pytanie.h"
+
+1600015139 i:\projects\c++\projects\project\pytanie.h
+	<iostream>
+
+1600016263 source:i:\projects\c++\projects\project\pytanie.cpp
+	<iostream>
+	"pytanie.h"
+	<fstream>
+	<cstdlib>
+
