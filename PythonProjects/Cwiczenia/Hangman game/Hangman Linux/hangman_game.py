@@ -17,7 +17,7 @@ for i in range(7):
         image = pg.image.load('hangman%s.png' % i)
         images.append(image)
     except:
-        print('Nie udało się załadować obrazku')
+        print('Nie udało się zaladować obrazku')
         pg.time.delay(3000)
         
 print (images)
@@ -36,7 +36,7 @@ try:
         password.append(x[:-1])
         count += 1
 except:
-    print("Nie udało się załadowac tekstu")
+    print("Nie udało się zaladowac tekstu")
 print(count)
 num = random.randint(0,count-1)
 word = password[num]
