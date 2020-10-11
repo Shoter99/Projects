@@ -1,0 +1,3 @@
+kochamcie = 'gwiazdeczka'
+
+print(kochamcie)
