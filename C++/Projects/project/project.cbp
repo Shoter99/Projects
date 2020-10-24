@@ -33,8 +33,11 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+<<<<<<< HEAD
 		<Unit filename="pytanie.cpp" />
 		<Unit filename="pytanie.h" />
+=======
+>>>>>>> 8938f5545cffdf1f085fd179d87c9fb00f97b19a
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
