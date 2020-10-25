@@ -59,4 +59,16 @@ akademia = input("Wpisz akademia: ")
 
 if akademia == "Akademia":
     print(True)
+
+print("1 3 5 ? 9")
+print("2 4 6 ? 10")
+odp = ""
+while odp != "7 2":
+    odp = input("Co trzeba wstawić pod znakiem zapytania? ")
+    if odp == "7 2":
+        print("Dobrze")
+    else:
+        print("nie udało sie")
 """
+znajomi = ['znaj1', 'znaj2', 'znaj3', 'znaj4']
+print(rand.choice(znajomi))
