@@ -47,13 +47,13 @@ int main() {
 
         cout<<godzina(14)<<endl;
         cout<<godzina(20);
-
+*/
         cout<<godz_ny(18)<<endl;
         cout<<godz_ny(2);
-
+/*
         cout<<skala(5)<<endl;
         cout<<skala(52);
-*/
 
+*/
 		return 0;
 }
