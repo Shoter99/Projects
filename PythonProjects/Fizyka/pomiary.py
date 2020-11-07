@@ -31,9 +31,9 @@ def Srednia(cos):
 
 def Silah():
     fmin = (Srednia(dane)-wachanie_masy) * \
-        ((Srednia(a)-wachanie_przyspieszenia)+9.81)
+        ((Srednia(a)-wachanie_przyspieszenia))
     fmax = (Srednia(dane)+wachanie_masy) * \
-        ((Srednia(a)+wachanie_przyspieszenia)+9.81)
+        ((Srednia(a)+wachanie_przyspieszenia))
     print(fmin, fmax)
     return (fmax - fmin)/2
 
@@ -42,10 +42,10 @@ def BladPomiaru(co):
     return (max(co)-min(co))/2
 
 
-def Odchylenie():
-    for i in range(0, len(dane)):
-        suma.append((dane[i]-srednia)**2)
-    return m.sqrt((1/(len(dane)-1)*sum(suma)))
+def Odchylenie(cos):
+    for i in range(0, len(cos)):
+        suma.append((cos[i]-Srednia(a))**2)
+    return m.sqrt((1/(len(cos)-1)*sum(suma)))
 
 
 suma = []
@@ -54,19 +54,13 @@ wachanie_masy = BladPomiaru(dane)
 wachanie_przyspieszenia = BladPomiaru(a)
 f = open("wyniki.txt", "w")
 print("Średnia siła hamowania wynosi: " +
-      str(Srednia(dane)*(Srednia(a)+9.81))+"N\n")
+      str(Srednia(dane)*(Srednia(a)))+"N\n")
 f.write("Średnia siła hamowania wynosi: " +
-        str(Srednia(dane)*(Srednia(a)+9.81))+"N\n")
+        str(Srednia(dane)*(Srednia(a)))+"N\n")
 f.write("Niepewność pomiarowa masy wynosi: "+str(wachanie_masy)+"kg\n")
-f.write("Wartość odchylenia wynosi: "+str(Odchylenie())+"kg\n")
+f.write("Wartość odchylenia standardowego przyspieszenia wynosi: " +
+        str(Odchylenie(a))+"m/s2\n")
 f.write("Niepewność siły hamowania wynosi: "+str(Silah())+"N\n")
 f.write("Niepewność pomiarowa przyspieszenia wynosi: " +
         str(wachanie_przyspieszenia)+"m/s2\n")
 f.close()
-
-try:
-    Odchylenie()
-    Silah()
-except:
-    print("błąd")
-    input()
