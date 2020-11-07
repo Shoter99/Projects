@@ -1,0 +1,5 @@
+Średnia siła hamowania wynosi: 128.37906516666672N
+Niepewność pomiarowa masy wynosi: 0.14705000000000013kg
+Wartość odchylenia wynosi: 0.08592310002349225kg
+Niepewność siły hamowania wynosi: 8.49531858333333N
+Niepewność pomiarowa przyspieszenia wynosi: 0.9550000000000001m/s2

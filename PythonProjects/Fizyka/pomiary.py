@@ -1,5 +1,7 @@
 import math as m
 import sys
+
+encoding = 'utf-8'
 # dane = list(map(float, input("Podaj dane: ").split()))
 # masa = int(input("Podaj mase ciala: "))
 # a = float(input("Podaj przyspieszenie: "))
