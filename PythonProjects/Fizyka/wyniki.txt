@@ -1,5 +1,5 @@
-Åšrednia siÅ‚a hamowania wynosi: 128.37906516666672N
-NiepewnoÅ›Ä‡ pomiarowa masy wynosi: 0.14705000000000013kg
-WartoÅ›Ä‡ odchylenia wynosi: 0.08592310002349225kg
-NiepewnoÅ›Ä‡ siÅ‚y hamowania wynosi: 8.49531858333333N
-NiepewnoÅ›Ä‡ pomiarowa przyspieszenia wynosi: 0.9550000000000001m/s2
+Œrednia si³a hamowania wynosi: 17.76156445N
+Wartoœæ odchylenia wynosi: 0.0007071067811865482kg
+Wartoœæ odchylenia standardowego przyspieszenia wynosi : 0.5189231799280773m/s2
+Niepewnoœæ si³y hamowania wynosi: 0.27263510000000224N
+Niepewnoœæ pomiarowa przyspieszenia wynosi: 0.8620000000000019m/s2
