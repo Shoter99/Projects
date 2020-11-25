@@ -19,7 +19,7 @@ function setup(){
    
 }
 function draw(){
-    for( let i = 0; i < 100; i++){
+    for( let i = 0; i < 1000; i++){
     stroke(255,0,255);
     point(x,y);
     let r = floor(random(3));
