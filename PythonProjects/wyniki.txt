@@ -1,0 +1,5 @@
+Œrednia si³a hamowania wynosi: 16.46782928N
+Niepewnoœæ pomiarowa masy wynosi: 0.0010000000000000009kg
+Wartoœæ odchylenia standardowego przyspieszenia wynosi: 5.1549676630896535m/s2
+Niepewnoœæ si³y hamowania wynosi: 1.4125218950000002N
+Niepewnoœæ pomiarowa przyspieszenia wynosi: 5.977699999999999m/s2
