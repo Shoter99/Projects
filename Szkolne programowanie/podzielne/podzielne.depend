@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1606065335 source:i:\projects\szkolne programowanie\podzielne\main.cpp
+	<iostream>
+	<string>
+
