@@ -3,46 +3,33 @@
 using namespace std;
 void wyrazy()
 {
-       char litera[50];
+    char litera[50];
     int ile=0;
     cout<<"Podaj zdanie: ";
     cin.getline(litera,50);
-    for(int i=0; litera[i] != '.';i++)
+    for(int i=0; litera[i] != '\0';i++)
     {
-        if(litera[i]==' ')
+        if(litera[i]==' ' || litera[i]=='.')
             ile++;
     }
 
-    cout<<"Liczba wyrazow w zdaniu: "<<ile+1;
+    cout<<"Liczba wyrazow w zdaniu: "<<ile;
 }
-void oddzielnie()
+void palidrom()
 {
-    char zdanie[300];
-    cout<<"Podaj zdanie: ";
-    cin.getline(zdanie, 300);
-    for(int i=0;zdanie[i] != '.';i++)
-    {
-        if(zdanie[i]!=' ')
-            cout<<zdanie[i];
-        else
-            cout<<endl;
-    }
-}
-int main()
-{
-    char zdanie[100];
+     char zdanie[100];
     string pali;
     bool jest=true;
     cout<<"Podaj zdanie: ";
     gets(zdanie);
-    for(int i=0;zdanie[i] != '\0';i++)
+    for(int i=0;zdanie[i] != '\0';i++) //Przejscie przez wszyskie znaki wpisane z kalwaitury
     {
-        if(zdanie[i]!=' ')
+        if(zdanie[i]!=' ')//podzial tekstu na wyrazy
            pali= pali+zdanie[i];
         else
         {
 
-            for(int j=0;j<pali.size();j++)
+            for(int j=0;j<pali.size();j++)//sprwadzenie czy wyraz to palidrom
             {
                 if(pali[j] != pali[pali.size()-j-1])
                 {
@@ -64,5 +51,22 @@ int main()
         }
     }
 
+}
+void oddzielnie()
+{
+    char zdanie[300];
+    cout<<"Podaj zdanie: ";
+    cin.getline(zdanie, 300);
+    for(int i=0;zdanie[i] != '.';i++)
+    {
+        if(zdanie[i]!=' ')
+            cout<<zdanie[i];
+        else
+            cout<<endl;
+    }
+}
+int main()
+{
+    wyrazy();
     return 0;
 }

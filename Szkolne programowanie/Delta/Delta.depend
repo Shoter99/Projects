@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1607854164 source:i:\projects\szkolne programowanie\delta\main.cpp
+	<iostream>
+	<cmath>
+
