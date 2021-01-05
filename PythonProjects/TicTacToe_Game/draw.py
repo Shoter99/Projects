@@ -18,24 +18,29 @@ def move(cord):
         play()
 
 def play():
-    cordX = input("What is your move(row/col): ")
+    cordX = input("What is your move(row col): ")
     move(cordX)
 
-
+def end():
+    for i in game:
+        for j in i:
+            if j == 0:
+                return True
 game = [[0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]]
 i = 0
-while True:
+while end():
     if i % 2 == 0:
         m = 1
     else:
         m = 2
     if m == 1:
-        print("Now is X move")
+        print("Now is X move\n")
         play()
     elif m == 2:
-        print("Now is O move")
+        print("Now is O move\n")
         play()
     print(game)
     i += 1
+print("\n  ---No more places---")
