@@ -1,13 +1,21 @@
 def move(cord):
     cords = cord.strip().split(" ")
-    row = int(cords[0])
-    col = int(cords[1])
-    if game[row-1][col-1] == 0:
-        game[row-1][col-1] = m
-    else:
-        cord = input("This place is taken choose another one: ")
-        move(cord)
-
+    try:
+        row = int(cords[0])
+        col = int(cords[1])
+    except:
+        print("You typed wrong cords! Try again!")
+        play()
+        return
+    try: 
+        if game[row-1][col-1] == 0:
+            game[row-1][col-1] = m
+        else:
+            print("This place is already taken choose another one!")
+            play()
+    except: 
+        print("You choose cords outside the board! Try again!")
+        play()
 
 def play():
     cordX = input("What is your move(row/col): ")
