@@ -1,4 +1,4 @@
-matrix = [[1, 2, 1],
+game = [[1, 2, 1],
           [1, 2, 0],
           [1, 2, 1]]
 
@@ -20,13 +20,13 @@ def check_if_win(list):
         exit()
 
 
-column = [[matrix[0][0], matrix[1][0], matrix[2][0]], [matrix[0][1],
-                                                       matrix[1][1], matrix[2][1]], [matrix[0][2], matrix[1][2], matrix[2][2]]]
-cross = [[matrix[0][0], matrix[1][1], matrix[2][2]],
-         [matrix[0][2], matrix[1][1], matrix[2][0]]]
-check_if_win(matrix[0])
-check_if_win(matrix[1])
-check_if_win(matrix[2])
+column = [[game[0][0], game[1][0], game[2][0]], [game[0][1],
+                                                       game[1][1], game[2][1]], [game[0][2], game[1][2], game[2][2]]]
+cross = [[game[0][0], game[1][1], game[2][2]],
+         [game[0][2], game[1][1], game[2][0]]]
+check_if_win(game[0])
+check_if_win(game[1])
+check_if_win(game[2])
 check_if_win(column[0])
 check_if_win(column[1])
 check_if_win(column[2])
