@@ -79,38 +79,36 @@ game = [[" ", " ", " "],
     [" ", " ", " "]] 
 i = 0
 while end():
-        draw_board()
-        column = [[game[0][0], game[1][0], game[2][0]], [game[0][1],
-                                                        game[1][1], game[2][1]], [game[0][2], game[1][2], game[2][2]]]
-        cross = [[game[0][0], game[1][1], game[2][2]],
-            [game[0][2], game[1][1], game[2][0]]]  
-        if i % 2 == 0:
-            m = "X"
-        else:
-            m = "O"
-        
-        if m == "X":
-            check()
-            if game_end == True:
-                game = [[" ", " ", " "],
-                        [" ", " ", " "],
-                        [" ", " ", " "]] 
-                i = 0
-                game_end = False
-                continue
-            print("Now is X move\n")
-            play()
-        elif m == "O":
-            check()
-            if game_end == True:
-                game = [[" ", " ", " "],
-                        [" ", " ", " "],
-                        [" ", " ", " "]] 
-                i = 0
-                game_end = False
-                continue
-            print("Now is O move\n")
-            play()
-        i += 1
-    
+    draw_board()
+    column = [[game[0][0], game[1][0], game[2][0]], [game[0][1],
+                game[1][1], game[2][1]], [game[0][2], game[1][2], game[2][2]]]
+    cross = [[game[0][0], game[1][1], game[2][2]],
+        [game[0][2], game[1][1], game[2][0]]]  
+    if i % 2 == 0:
+        m = "X"
+    else:
+        m = "O"
+    if m == "X":
+        check()
+        if game_end == True:
+            game = [[" ", " ", " "],
+                    [" ", " ", " "],
+                    [" ", " ", " "]] 
+            i = 0
+            game_end = False
+            continue
+        print("Now is X move\n")
+        play()
+    elif m == "O":
+        check()
+        if game_end == True:
+            game = [[" ", " ", " "],
+                    [" ", " ", " "],
+                    [" ", " ", " "]] 
+            i = 0
+            game_end = False
+            continue
+        print("Now is O move\n")
+        play()
+    i += 1   
 print("\n  ---No more places---")
