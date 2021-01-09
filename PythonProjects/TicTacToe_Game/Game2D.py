@@ -1,7 +1,8 @@
 import pygame as pg
 pg.init()
 
-WIDTH,HEIGHT = 808,700
+WIDTH,HEIGHT = 808,600
+x,y = WIDTH-6, HEIGHT-50
 
 screen = pg.display.set_mode([WIDTH,HEIGHT])
 
@@ -13,6 +14,9 @@ while running:
             running = False
         
         screen.fill((255,255,255))
-        pg.draw.line(screen,(0,0,255),(WIDTH/3,0),(WIDTH/3,HEIGHT),2)
+        pg.draw.line(screen,(0,0,255),(x/3+50,175),(x/3+50,2*y/3+175),3)
+        pg.draw.line(screen,(0,0,255),(2*x/3-50,175),(2*x/3-50,2*y/3+175),3)
+        pg.draw.line(screen,(0,0,255),(x/4,y/3+100),(3*x/4,y/3+100),3)
+        pg.draw.line(screen,(0,0,255),(x/4,2*y/3+75),(3*x/4,2*y/3+75),3)
         pg.display.flip()
 pg.quit()
