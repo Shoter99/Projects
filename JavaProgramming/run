@@ -1,0 +1,4 @@
+echo "Which file would you like to run?"
+read what
+echo $(javac $what.java)
+echo $(java $what)
