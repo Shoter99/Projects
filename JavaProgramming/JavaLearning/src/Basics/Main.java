@@ -6,8 +6,8 @@ public class Main extends Read{
 		Read read = new Read();
 		read.readFormFile();
 		read.separate();
-		
-
+		read.ask();
+		read.print("Your points: "+read.points);
 	}
 
 }
