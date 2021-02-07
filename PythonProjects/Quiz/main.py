@@ -1,5 +1,3 @@
-from Quiz import readFromFile, answer
+from Quiz import readFromFile, answer, points
 
 readFromFile()
-
-print (answer)
