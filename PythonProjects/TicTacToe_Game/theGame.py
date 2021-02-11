@@ -1,4 +1,4 @@
-def draw_board(): #Function that draws a board
+def draw_board():  # Function that draws a board
     print("""
      --- --- ---
     | %s | %s | %s |
@@ -7,8 +7,10 @@ def draw_board(): #Function that draws a board
      --- --- --- 
     | %s | %s | %s |
      --- --- ---   
-     """ % (game[0][0],game[0][1],game[0][2],game[1][0],game[1][1],game[1][2],game[2][0],game[2][1],game[2][2]))
-def check_if_win(list): #Check if X or O won game in one line
+     """ % (game[0][0], game[0][1], game[0][2], game[1][0], game[1][1], game[1][2], game[2][0], game[2][1], game[2][2]))
+
+
+def check_if_win(list):  # Check if X or O won game in one line
     x = 0
     o = 0
     for i in list:
@@ -23,17 +25,20 @@ def check_if_win(list): #Check if X or O won game in one line
     elif o == 3:
         print("o won")
         exit()
-def check(): #Checks every line for winner
-        check_if_win(game[0])
-        check_if_win(game[1])
-        check_if_win(game[2])
-        check_if_win(column[0])
-        check_if_win(column[1])
-        check_if_win(column[2])
-        check_if_win(cross[0])
-        check_if_win(cross[1])
 
-def move(cord): # Move player
+
+def check():  # Checks every line for winner
+    check_if_win(game[0])
+    check_if_win(game[1])
+    check_if_win(game[2])
+    check_if_win(column[0])
+    check_if_win(column[1])
+    check_if_win(column[2])
+    check_if_win(cross[0])
+    check_if_win(cross[1])
+
+
+def move(cord):  # Move player
     cords = cord.strip().split(" ")
     try:
         row = int(cords[0])
@@ -42,21 +47,23 @@ def move(cord): # Move player
         print("You typed wrong cords! Try again!")
         play()
         return
-    try: 
+    try:
         if game[row-1][col-1] == " ":
             game[row-1][col-1] = m
         else:
             print("This place is already taken choose another one!")
             play()
-    except: 
+    except:
         print("You choose cords outside the board! Try again!")
         play()
 
-def play(): # Ask player for move
+
+def play():  # Ask player for move
     cordX = input("What is your move(row col): ")
     move(cordX)
 
-def end(): # Checks if game has ended
+
+def end():  # Checks if game has ended
     for i in game:
         for j in i:
             if j == " ":
@@ -65,11 +72,11 @@ def end(): # Checks if game has ended
 
 game = [[" ", " ", " "],
         [" ", " ", " "],
-        [" ", " ", " "]] 
+        [" ", " ", " "]]
 column = [[game[0][0], game[1][0], game[2][0]], [game[0][1],
-                                                       game[1][1], game[2][1]], [game[0][2], game[1][2], game[2][2]]]
+                                                 game[1][1], game[2][1]], [game[0][2], game[1][2], game[2][2]]]
 cross = [[game[0][0], game[1][1], game[2][2]],
-         [game[0][2], game[1][1], game[2][0]]]   
+         [game[0][2], game[1][1], game[2][0]]]
 i = 0
 
 
