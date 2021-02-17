@@ -3,74 +3,84 @@ def createChars():
     x = 0
     while x+65 <= 90:
         asciiChar.append(chr(x+65))
-        x+=1
-    x=0
+        x += 1
+    x = 0
     while x+48 < 58:
         asciiChar.append(chr(x+48))
-        x+=1
+        x += 1
     return asciiChar
+
+
 def createMorse():
     morseCode = {
-        'A': "._",
-        'B': "_...",
-        'C': "_._.",
-        'D': "_..",
+        'A': ".-",
+        'B': "-...",
+        'C': "-.-.",
+        'D': "-..",
         'E': ".",
-        'F': ".._.",
-        'G': "__.",
+        'F': "..-.",
+        'G': "--.",
         'H': "....",
         'I': "..",
-        'J': ".___",
-        'K': "_._",
-        'L': "._..",
-        'M': "__",
-        'N': "_.",
-        'O': "___",
-        'P': ".__.",
-        'Q': "__._",
-        'R': "._.",
+        'J': ".---",
+        'K': "-.-",
+        'L': ".-..",
+        'M': "--",
+        'N': "-.",
+        'O': "---",
+        'P': ".--.",
+        'Q': "--.-",
+        'R': ".-.",
         'S': "...",
-        'T': "_",
-        'U': ".._",
-        'V': "..._",
-        'W': ".__",
-        'X': "_.._",
-        'Y': "_.__",
-        'Z': "__..",
-        '1': ".____",
-        '2': "..___",
-        '3': "...__",
-        '4': "...._",
+        'T': "-",
+        'U': "..-",
+        'V': "...-",
+        'W': ".--",
+        'X': "-..-",
+        'Y': "-.--",
+        'Z': "--..",
+        '1': ".----",
+        '2': "..---",
+        '3': "...--",
+        '4': "....-",
         '5': ".....",
-        '6': "_....",
-        '7': "__...",
-        '8': "___..",
-        '9': "____.",
-        '0': "_____"
+        '6': "-....",
+        '7': "--...",
+        '8': "---..",
+        '9': "----.",
+        '0': "-----"
     }
     return morseCode
+
+
 def textToMorse(input):
     morse = createMorse()
     for x in input.upper():
         if(x == " "):
-            print(" ",end="")
+            print("/", end="")
         elif(morse.get(x)):
             print(morse.get(x)+" ", end="")
-        else: 
-            print("Your input is not a word or it has special characters which are not accepted by this encoder")
+        else:
+            print(
+                "Your input is not a word or it has special characters which are not accepted by this encoder")
             break
+
+
 def morseToText(input):
     input = input+" "
     morse = createMorse()
     output = ""
     for x in input:
-        if(x == " "):
+        if(x == " " or x == "\n"):
             if output in morse.values():
-                print(list(morse.keys())[list(morse.values()).index(output)],end="") 
+                print(list(morse.keys())[
+                    list(morse.values()).index(output)].lower(), end="")
                 output = ""
             else:
-                print("Your input hava characters not accepted by this decoder you are allowed to only use '.' and '_'")
+                print(
+                    "Your input hava characters not accepted by this decoder you are allowed to only use '.' and '_'")
                 break
+        elif x == "/":
+            print(" ", end="")
         else:
-            output+=x
-
+            output += x
