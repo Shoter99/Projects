@@ -1,3 +1,4 @@
+
 body {
   background-color: rgb(255, 255, 255);
 }
@@ -16,6 +17,8 @@ body {
   margin-top: 20px;
   vertical-align: middle;
   padding: 10px;
+  font-family: "Josefin Slab";
+  font-weight: bold;
 }
 .big-break {
   height: 36px;
