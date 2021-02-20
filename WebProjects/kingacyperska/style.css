@@ -42,6 +42,12 @@ a{
   font-family: "Times New Roman", Times, serif;
   margin-bottom: 25px;
 }
+@media screen and (max-width:500px){
+  #aboutme{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 #content {
   text-align: justify;
   padding: 20px;
