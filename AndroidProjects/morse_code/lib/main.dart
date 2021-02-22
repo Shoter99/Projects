@@ -28,6 +28,7 @@ class Home extends StatefulWidget {
   String converted;
   bool isSwitched = false;
   String _text;
+  bool buttonPressed = false;
   var code = {};
   var asciiChars = [];
   bool status;
@@ -233,13 +234,25 @@ class _HomeScreenState extends State<Home>{
               key.currentState.showSnackBar(
                 new SnackBar(content: new Text("Copied to Clipboard"),));
            },
-    )
+    ),
 
-          )
+          ),
 
         ],
 
-      )
+      ),
+      floatingActionButton: new Switch(
+        value: buttonPressed,
+        onChanged: (value){
+          setState(() {
+            value = buttonPressed;
+            print(value);
+          });
+
+
+        },
+
+      ),
     );
   }
 
