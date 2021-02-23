@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Slab|Amatic SC|Montserrat|Playfair Display">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Slab|Amatic SC|Montserrat|Playfair Display">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Kinga Cyperska - Scrapbooking</title>
     <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <script src="script.js"></script>
+    <script src="/static/script.js"></script>
     <div id="container">
       <div id="menu">
         <br><br><br><br><br><br>
@@ -43,7 +43,7 @@
           <br>
         </div>
         <div id="form">
-          <form action="send.php" method="POST">
+          <form action="templates/send.php" method="POST">
             <input class="input" name="name" type="text" required="true" placeholder="* Imię">
             <br>
             <input class="input" name="lastname" type="text" placeholder="Nazwisko">
@@ -62,51 +62,51 @@
       <div id="gallery">
         <div class="image">
           <h2 class="photoName">Photo name</h2>
-          <img class="photo" src="gallery/img1.jpg">
+          <img class="photo" src="static/gallery/img1.JPG">
         </div>
         <div class="image">
           <h2 class="photoName">Photo name</h2>
-          <img class="photo" src="gallery/img2.jpg">
+          <img class="photo" src="static/gallery/img2.JPG">
         </div>
         <div class="image">
           <h2 class="photoName">Photo name</h2>
-          <img class="photo" src="gallery/img3.jpg">
+          <img class="photo" src="static/gallery/img3.JPG">
         </div>
         <div class="image">
           <h2 class="photoName">Photo name</h2>
-          <img class="photo" src="gallery/img4.jpg">
+          <img class="photo" src="static/gallery/img4.JPG">
         </div>
         <div class="image">
           <h2 class="photoName">Photo name</h2>
-          <img class="photo" src="gallery/img5.jpg">
+          <img class="photo" src="static/gallery/img5.JPG">
         </div>
         <div class="image">
           <h2 class="photoName">Photo name</h2>
-          <img class="photo" src="gallery/img6.jpg">
+          <img class="photo" src="static/gallery/img6.JPG">
         </div>
         <div class="image">
           <h2 class="photoName">Photo name</h2>
-          <img class="photo" src="gallery/img7.jpg">
+          <img class="photo" src="static/gallery/img7.JPG">
         </div>
         <div class="image">
           <h2 class="photoName">Photo name</h2>
-          <img class="photo" src="gallery/img8.jpg">
+          <img class="photo" src="static/gallery/img8.JPG">
         </div>
         <div class="image">
           <h2 class="photoName">Photo name</h2>
-          <img class="photo" src="gallery/img9.jpg">
+          <img class="photo" src="static/gallery/img9.JPG">
         </div>
         <br>
       </div>
       <div id="footer">
-        <img id="fimg" src="send.png">
+        <img id="fimg" src="static/send.png">
         <br>
         <a href="tel:+48797620774">tel. (+48) 797620774</a>
         <br>
         <a href="mailto:kinga200374@gmail.com">kinga200374@gmail.com</a>
         <br>
         <span style="font-size:15px; font-weight:bold;">Zaobserwuj mnie: </span><br>
-          <a href="https://www.instagram.com/kinga_cyperska" target="_blank" alt="Zobacz mojego instagrama"><img class="socialicons" src="instagram.png"></a>
+          <a href="https://www.instagram.com/kinga_cyperska" target="_blank" alt="Zobacz mojego instagrama"><img class="socialicons" src="static/instagram.png"></a>
         <br><br>
         <span style="font-size: 12px; font-weight: 100;";>&copy;Page made by Dawid Roszman</span>
       </div>
@@ -114,3 +114,4 @@
     </div>
   </body>
 </html>
+
