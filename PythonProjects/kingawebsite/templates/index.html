@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin Slab|Amatic SC|Montserrat|Playfair Display">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Kinga Cyperska - Scrapbooking</title>
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <script src="script.js"></script>
+    <div id="container">
+      <div id="menu">
+        <br><br><br><br><br><br>
+        <span class="title">Kinga Cyperska</span>
+        <br>
+        <br>
+        <span class="subtitle">Scrapbooking</span>
+        <br><br><br>
+          
+      </div>
+      <div id="aboutme">
+        <div id="content">
+      <span class="title">O mnie</span>
+      <br><br>
+      <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+         Sed malesuada faucibus ex nec ultricies. Donec mattis egestas nisi non pretium.
+         Suspendisse nec eros ut erat facilisis maximus. In congue et leo in varius.
+         Vestibulum sit amet felis ornare, commodo orci ut, feugiat lorem.</span>
+        </div>
+      </div>
+      <div id="contact">
+        Logo<br><br>
+        <div id="tel">
+          <a href="tel:+48797620774" style="color: black;">ZADZWOŃ (+48) 797620774</a>
+          <br><br>
+          LUB
+          <br><br>
+          <span style="font-weight: bold;">SKONTAKTUJ SIĘ</span>
+          <br>
+          ___
+          <br>
+          <br>
+        </div>
+        <div id="form">
+          <form action="send.php" method="POST">
+            <input class="input" name="name" type="text" required="true" placeholder="* Imię">
+            <br>
+            <input class="input" name="lastname" type="text" placeholder="Nazwisko">
+            <br>
+            <input class="input" name="email" type="email" required="true" placeholder="* Email">
+            <br>
+            <input class="input" name="content" type="text" required="true" placeholder="* Wiadomość">
+            <br><br>
+            <input id="button" type="submit" value="PRZEŚLIJ">
+          </form>
+        </div>
+      <br><br><br><br><br>
+      <h2 class="title">Moje prace</h2>
+        ___
+        <br><br><br>
+      <div id="gallery">
+        <div class="image">
+          <h2 class="photoName">Photo name</h2>
+          <img class="photo" src="gallery/img1.jpg">
+        </div>
+        <div class="image">
+          <h2 class="photoName">Photo name</h2>
+          <img class="photo" src="gallery/img2.jpg">
+        </div>
+        <div class="image">
+          <h2 class="photoName">Photo name</h2>
+          <img class="photo" src="gallery/img3.jpg">
+        </div>
+        <div class="image">
+          <h2 class="photoName">Photo name</h2>
+          <img class="photo" src="gallery/img4.jpg">
+        </div>
+        <div class="image">
+          <h2 class="photoName">Photo name</h2>
+          <img class="photo" src="gallery/img5.jpg">
+        </div>
+        <div class="image">
+          <h2 class="photoName">Photo name</h2>
+          <img class="photo" src="gallery/img6.jpg">
+        </div>
+        <div class="image">
+          <h2 class="photoName">Photo name</h2>
+          <img class="photo" src="gallery/img7.jpg">
+        </div>
+        <div class="image">
+          <h2 class="photoName">Photo name</h2>
+          <img class="photo" src="gallery/img8.jpg">
+        </div>
+        <div class="image">
+          <h2 class="photoName">Photo name</h2>
+          <img class="photo" src="gallery/img9.jpg">
+        </div>
+        <br>
+      </div>
+      <div id="footer">
+        <img id="fimg" src="send.png">
+        <br>
+        <a href="tel:+48797620774">tel. (+48) 797620774</a>
+        <br>
+        <a href="mailto:kinga200374@gmail.com">kinga200374@gmail.com</a>
+        <br>
+        <span style="font-size:15px; font-weight:bold;">Zaobserwuj mnie: </span><br>
+          <a href="https://www.instagram.com/kinga_cyperska" target="_blank" alt="Zobacz mojego instagrama"><img class="socialicons" src="instagram.png"></a>
+        <br><br>
+        <span style="font-size: 12px; font-weight: 100;";>&copy;Page made by Dawid Roszman</span>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
