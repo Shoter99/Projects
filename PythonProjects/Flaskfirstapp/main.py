@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(minutes=5)
 app.secret_key = "fhaghioaejuopabpnaihfiahepfj"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqllite:///users.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
@@ -13,9 +13,12 @@ db = SQLAlchemy(app)
 class users(db.Model):
 	_id = db.Column("id",db.Integer, primary_key=True)
 	name = db.Column(db.String(100))
-
+	email = db.Column(db.String(100))
+	password = db.Column(db.String(100))
 	def __init__(self, name):
 		self.name = name
+		self.email = email
+		self.password = password
 
 
 @app.route("/")
@@ -36,14 +39,15 @@ def login():
 		return redirect(url_for("user"))
 	else:
 		if request.method == "POST":
-			if "register_user" in session:
-				user = request.form["login"]
-				password = request.form["pass"]
-				rUsername = session["register_user"]
-				rPassword = session["register_password"]
-				if(user == rUsername and password == rPassword):
-					session["user"] = user
-					session["pass"] = password
+			user = request.form["login"]
+			password = request.form["pass"]
+
+			found_user = users.query.filter_by(name=user).first()
+			if found_user:
+				if password == found_user.password:		
+					session["user"] = found_user.name
+					session["pass"] = found_user.password
+					session["email"] = found_user.email
 					flash("You have been successfully logged in", "info")
 					return redirect(url_for("user"))
 				else:
@@ -57,12 +61,12 @@ def login():
 
 @app.route("/user")
 def user():
-	if "user" in session:
-		user = session["user"]
-		username = session["register_user"]
-		email =	session["register_email"] 
-		passowrd = session["register_password"]
-		return render_template("user.html", usr = user, r_user = username, r_email = email, r_password = passowrd)
+	found_user = users.query.filter_by(name=user).first()
+	if found_user:
+		user = found_user.name
+		email =	found_user.email 
+		passowrd = found_user.password
+		return render_template("user.html", usr = user, email = email, password = passowrd)
 	else:
 		flash("Please log in before entering this site", "info")
 		return redirect(url_for("login"))
@@ -93,12 +97,21 @@ def register():
 			flash("Passwords must me the same!", "warning")
 			redirect(url_for("register"))
 		else:
-			session["register_user"] = username
-			session["register_email"] = email
-			session["register_password"] = password
-			flash("Register was successfull!","info")
-			return redirect(url_for("login"))
+			found_user = users.query.filter_by(name=username).first()
+			if found_user:
+				flash("Person with this username already exists")
+				return render_template("register")
+			else:
+				usr = users(username)
+				db.session.add(usr)
+				db.session.commit()
+				flash("Register was successfull!","info")
+				return redirect(url_for("login"))
+			
+			
+			
 	return render_template("register.html")
 
-if __name__=='__main__':
-    app.run(debug=True)
+if __name__=="__main__":
+	db.create_all()
+	app.run(debug=True)
