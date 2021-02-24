@@ -1,8 +1,20 @@
 {%extends "base.html"%}
 {%block title%}Login{% endblock%}
 {%block content%}
+{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for msg in messages%}
+				<p style="
+					animation: fade-out 3s;
+					opacity: 0;
+					color:white;
+				">{{msg}}</p>
+			{%endfor%}
 
-<form id="loginForm" method="post" action="#" id>
+		{% endif %}
+	{% endwith %}
+<h1 style="text-align: center;">Login</h1>
+<form class="loginForm" method="post" action="#" >
 	<label>Username: </label>
  	<input class="input" type="text" required="true" name="login">
  	<br>
@@ -11,17 +23,12 @@
  	<br>
   	<button type="submit" class="button">Submit</button>
 </form>
-{% with messages = get_flashed_messages() %}
-	{% if messages %}
-		{% for msg in messages %}
-			<p>{{mgs}}</p>
-		{% endfor %}
-	{% endif %}
-{% endwith %}
+	
 {%endblock%}
 {% block links%}
 <a class="nav-link" href="/">Home</a>
 <a class="nav-link" href="aboutme">About me</a>
 <a class="nav-link" href="contact">Contact</a>
 <a class="nav-link active" aria-current="page" href="#">Login</a>
+<a class="nav-link" href="register">Register</a>
 {%endblock%}

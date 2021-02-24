@@ -1,18 +1,24 @@
 {%extends "base.html"%}
 
-{%block title%}About me{%endblock%}
+{%block title%}Shop{%endblock%}
 {%block content%}
 {% with messages = get_flashed_messages() %}
-	{% if messages %}
-		{% for msg in messages %}
-			<p>{{mgs}}</p>
-		{% endfor %}
-	{% endif %}
-{% endwith %}
-<h1>Welcome {{usr}}!</h1>
-<a href="logout"><button class="button">Log out</button></a>
-<h1>Welcome to the shop!</h1>
-<h2 style="text-align: center;">List of items in shop</h2>
+		{% if messages %}
+			{% for msg in messages%}
+				<p style="
+				animation: fade-out 3s;
+				opacity: 0;
+				color:white;">{{msg}}</p>
+			{%endfor%}
+
+		{% endif %}
+	{% endwith %}
+
+<h1>Welcome to the shop, {{usr}}!</h1>
+<p>Your password: {{r_password}}</p>
+<p>Your email: {{r_email}}</p>
+<!--
+<h2 style="text-align: center;color:white;">List of items in shop</h2>
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <form class="d-flex" action="#" method="get">
@@ -50,12 +56,14 @@
     </tr>
   </tbody>
 </table>
-
+-->
 
 {%endblock%}
 {% block links%}
 <a class="nav-link" href="/">Home</a>
 <a class="nav-link" href="about me">About me</a>
 <a class="nav-link" href="contact">Contact</a>
-<a class="nav-link" href="contact">Login</a>
+<a class="nav-link" href="login">Login</a>
+<a class="nav-link" href="register">Register</a>
+<a href="logout"><button class="button">Log out</button></a>
 {%endblock%}

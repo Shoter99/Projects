@@ -40,17 +40,27 @@
 				border: 2px solid white;
 				margin:8px;
 			}
-			#loginForm{
+			.loginForm{
 				border: 2px solid white;
 				background-color: rgb(48, 48, 82);
 				width: 25%;
-				margin-left: 35%;
+				margin-left: 37.5%;
+				padding: 20px;
 			}
 			@media screen and (max-width: 768px){
-				#loginForm{
+				.loginForm{
+					width: 50%;
+					margin-left: 25%;
+				}
+			}
+			@media screen and (max-width: 425px){
+				.loginForm{
 					width: 100%;
 					margin-left: 0;
 				}
+			}
+			p{
+				color: white;
 			}
 			#flashing{
 				position: absolute;
@@ -58,7 +68,26 @@
 				width: 100%;
 				margin: 0;
 				background-color: green;
+				animation: fade-out 2s;
 			}
+			@keyframes fade-out{
+				from{
+					opacity: 1;
+				}
+				to{
+					opacity: 0;
+				}
+			}
+			.register{
+				text-align: left;
+				text-decoration: none;
+				color: white;
+			}
+			.register:hover{
+				color: white;
+
+			}
+
 		</style>
 	</head>
 	<body>
