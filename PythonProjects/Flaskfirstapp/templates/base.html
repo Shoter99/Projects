@@ -52,10 +52,18 @@
 					margin-left: 0;
 				}
 			}
+			#flashing{
+				position: absolute;
+				opacity: 0.5;
+				width: 100%;
+				margin: 0;
+				background-color: green;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="container">
+			
 			<nav class="navbar navbar-dark bg-dark">
 			  <div class="container-fluid">
 			    <a class="navbar-brand" href="#">Navbar</a>
@@ -69,6 +77,7 @@
 			    </div>
 			  </div>
 			</nav>
+
 			<div id="title">
 			{% block content %}{% endblock %}
 			</div>

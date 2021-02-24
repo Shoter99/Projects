@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 
 app = Flask(__name__)
 
@@ -27,9 +27,10 @@ def login():
 			if(user == "Shoter99" and password == "d16092003"):
 				session["user"] = user
 				session["pass"] = password
+				flash("You have been successfully logged in", "info")
 				return redirect(url_for("user"))
 			else:
-				#flash
+				flash("You have typed wrong username or password!", "info")
 				return redirect(url_for("login"))
 		else:
 			return render_template("login.html")
@@ -40,12 +41,14 @@ def user():
 		user = session["user"]
 		return render_template("user.html", usr = user)
 	else:
+		flash("Please log in before entering this site", "info")
 		return redirect(url_for("login"))
 
 @app.route("/logout")
 def logout():
 	session.pop("user", None)
 	session.pop("pass", None)
+	flash("You have been successfully logged out!", "info")
 	return redirect(url_for("login"))
 if __name__=='__main__':
     app.run(debug=True)

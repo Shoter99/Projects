@@ -11,6 +11,13 @@
  	<br>
   	<button type="submit" class="button">Submit</button>
 </form>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for msg in messages %}
+			<p>{{mgs}}</p>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
 {%endblock%}
 {% block links%}
 <a class="nav-link" href="/">Home</a>
