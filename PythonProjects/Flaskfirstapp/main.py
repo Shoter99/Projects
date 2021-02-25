@@ -1,117 +1,117 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, session, flash, url_for
 from datetime import timedelta
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(minutes=5)
-app.secret_key = "fhaghioaejuopabpnaihfiahepfj"
+app.secret_key = "fafhaiohfohaohfa"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
+
 class users(db.Model):
-	_id = db.Column("id",db.Integer, primary_key=True)
-	name = db.Column(db.String(100))
-	email = db.Column(db.String(100))
-	password = db.Column(db.String(100))
-	def __init__(self, name):
-		self.name = name
-		self.email = email
-		self.password = password
+    _id = db.Column("id", db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    password = db.Column(db.String(100))
+
+    def __init__(self, password, name, email):
+        self.name = name
+        self.email = email
+        self.password = password
 
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
+
 @app.route("/aboutme")
 def aboutme():
-	return render_template("aboutme.html")
+    return render_template("aboutme.html")
+
 
 @app.route("/contact")
 def contact():
-	return render_template("contact.html")
+    return render_template("contact.html")
+
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
-	if("user" in session):
-		return redirect(url_for("user"))
-	else:
-		if request.method == "POST":
-			user = request.form["login"]
-			password = request.form["pass"]
+    if("user" in session):
+        return redirect(url_for("user"))
+    else:
+        if request.method == "POST":
+            user = request.form["login"]
+            password = request.form["pass"]
+            found_user = users.query.filter_by(name=user).first()
+            if found_user:
+                passw = found_user.password
+                if password == passw:
+                    session["user"] = found_user.name
+                    session["email"] = found_user.email
+                    session["password"] = found_user.password
+                    flash("You have been succesfully logged")
+                    return redirect(url_for("user"))
+                else:
+                    flash("You have typed wrong password or username!")
+                    return redirect(url_for("login"))
+            else:
+                flash(
+                    f"In our database there is no user with this name {user}")
+                return redirect(url_for("login"))
+        else:
+            return render_template("login.html")
 
-			found_user = users.query.filter_by(name=user).first()
-			if found_user:
-				if password == found_user.password:		
-					session["user"] = found_user.name
-					session["pass"] = found_user.password
-					session["email"] = found_user.email
-					flash("You have been successfully logged in", "info")
-					return redirect(url_for("user"))
-				else:
-					flash("You have typed wrong username or password!", "info")
-					return redirect(url_for("login"))
-			else:
-				flash("You need to register")
-				return redirect(url_for("register"))
-		else:
-			return render_template("login.html")
 
 @app.route("/user")
 def user():
-	found_user = users.query.filter_by(name=user).first()
-	if found_user:
-		user = found_user.name
-		email =	found_user.email 
-		passowrd = found_user.password
-		return render_template("user.html", usr = user, email = email, password = passowrd)
-	else:
-		flash("Please log in before entering this site", "info")
-		return redirect(url_for("login"))
+    if "user" in session:
+        user = session["user"]
+        email = session["email"]
+        password = session["password"]
+        return render_template("user.html", usr=user, email=email, password=password)
+    else:
+        flash("Please log in before entering this site!")
+        return redirect(url_for("login"))
+
 
 @app.route("/logout")
 def logout():
-	if "user" in session:
-		user = session["user"]
-		session.pop("user", None)
-		session.pop("pass", None)
-		session.pop("register_user", None)
-		session.pop("register_password", None)
-		session.pop("register_email", None)
-		flash("You have been successfully logged out!")
-		return redirect(url_for("login"))
-	else:
-		flash("You need to be logged to log out")
-		return redirect(url_for("login"))
+    session.pop("user", None)
+    session.pop("email", None)
+    session.pop("password", None)
+    flash("You have been succesfully logged out!")
+    return redirect(url_for("login"))
+
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
-	if request.method == "POST":
-		username = request.form["rUsername"]
-		email = request.form["rEmail"]
-		password = request.form["rPassword"]
-		repassword = request.form["rRepassword"]
-		if(password != repassword):
-			flash("Passwords must me the same!", "warning")
-			redirect(url_for("register"))
-		else:
-			found_user = users.query.filter_by(name=username).first()
-			if found_user:
-				flash("Person with this username already exists")
-				return render_template("register")
-			else:
-				usr = users(username)
-				db.session.add(usr)
-				db.session.commit()
-				flash("Register was successfull!","info")
-				return redirect(url_for("login"))
-			
-			
-			
-	return render_template("register.html")
+    if request.method == "POST":
+        Rusername = request.form["rUsername"]
+        Remail = request.form["rEmail"]
+        Rpassword = request.form["rPassword"]
+        repassword = request.form["rRepassword"]
+        if(Rpassword != repassword):
+            flash("Passwords must match")
+            redirect(url_for("register"))
+        else:
+            found_user = users.query.filter_by(name=Rusername).first()
+            if found_user:
+                flash("Person with this name already exits")
+                return redirect(url_for("register"))
+            else:
+                usr = users(Rpassword, Rusername, Remail)
+                db.session.add(usr)
+                db.session.commit()
+                flash("Register has been succesfull!")
+                return redirect(url_for("login"))
+    else:
+        return render_template("register.html")
 
-if __name__=="__main__":
-	db.create_all()
-	app.run(debug=True)
+
+if __name__ == "__main__":
+    db.create_all()
+    app.run(debug=True)
