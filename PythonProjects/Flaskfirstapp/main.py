@@ -1,3 +1,4 @@
+from enum import unique
 from flask import Flask, render_template, request, redirect, session, flash, url_for
 from datetime import timedelta
 from flask_sqlalchemy import SQLAlchemy
@@ -5,19 +6,18 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(minutes=5)
 app.secret_key = "fafhaiohfohaohfa"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///datebase.sqlite3'
 
 db = SQLAlchemy(app)
 
 
 class users(db.Model):
     _id = db.Column("id", db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
-    email = db.Column(db.String(100))
+    name = db.Column(db.String(100), unique=True)
+    email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
 
-    def __init__(self, password, name, email):
+    def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.password = password
@@ -49,14 +49,14 @@ def login():
             found_user = users.query.filter_by(name=user).first()
             if found_user:
                 passw = found_user.password
-                if password == passw:
+                if passw == password:
                     session["user"] = found_user.name
                     session["email"] = found_user.email
                     session["password"] = found_user.password
                     flash("You have been succesfully logged")
                     return redirect(url_for("user"))
                 else:
-                    flash("You have typed wrong password or username!")
+                    flash("Wrong username or password!")
                     return redirect(url_for("login"))
             else:
                 flash(
@@ -94,6 +94,8 @@ def register():
         Remail = request.form["rEmail"]
         Rpassword = request.form["rPassword"]
         repassword = request.form["rRepassword"]
+        session["email"] = Remail
+        session["password"] = Rpassword
         if(Rpassword != repassword):
             flash("Passwords must match")
             redirect(url_for("register"))
@@ -103,7 +105,7 @@ def register():
                 flash("Person with this name already exits")
                 return redirect(url_for("register"))
             else:
-                usr = users(Rpassword, Rusername, Remail)
+                usr = users(Rusername, Remail, Rpassword)
                 db.session.add(usr)
                 db.session.commit()
                 flash("Register has been succesfull!")
