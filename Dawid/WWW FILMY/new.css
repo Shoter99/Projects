@@ -1,0 +1,78 @@
+body
+{
+color: #ffffff;
+font-family: 'Lato', serif;
+font-size: 20px;
+background-color: #404040;
+}
+#conteiner
+{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#logo
+{
+	background-color: 128870;
+	color: white;
+	padding: 15px;
+	text-align: center;
+	font-family: 'Josefin Slab', serif;
+}
+#nev
+{
+	float: left;
+	width: 240px;
+	min-height: 600px;
+	background-color: gray;
+	padding: 10px;
+	color: black;
+}
+#content
+{
+	float: left;
+	width: 620px;
+	min-height: 600px;
+	background-color: white;
+	padding: 10px;
+	color: black;
+	text-align: center;
+}
+#ad
+{
+	float: left;
+	width: 80px;
+	min-height: 600px;
+	background-color: gray;
+	padding: 10px;
+	color: black;
+}
+#footer
+{
+	background-color: black;
+	color: white;
+	padding: 15px;
+	text-align: center;
+	
+	width: 971px;
+}
+a. tilelink
+{
+	text-decoration: none;
+	color: black;
+}
+.option:hover
+{
+	background-color: #000000;
+	cursor: pointer;
+	color: white;
+	
+}
+#zegar
+{
+	text-align: center;
+	height: 40px;
+	padding : 10px;
+	margin-top: 10px;
+	position:sticky;
+}

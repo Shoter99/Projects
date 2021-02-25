@@ -1,0 +1,13 @@
+Test
+1. Which class is this adress: 192.168.0.1
+A. Class C
+B. Class A
+C. Class B
+D. Class D
+A
+2. Is this a network adress: 10.255.255.255
+A. No
+B. Maybe
+C. Yes
+D. This is a network adress
+C

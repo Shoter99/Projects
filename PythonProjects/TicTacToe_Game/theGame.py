@@ -13,6 +13,7 @@ def draw_board():  # Function that draws a board
 def check_if_win(list):  # Check if X or O won game in one line
     x = 0
     o = 0
+    global game_end
     for i in list:
         if i != " ":
             if i == "X":
@@ -21,10 +22,33 @@ def check_if_win(list):  # Check if X or O won game in one line
                 o += 1
     if x == 3:
         print("X won")
-        exit()
+        gamefinish = input("Do you want to start again? ")
+        if gamefinish.lower() != "yes":
+            exit()
+        else:
+            print("\n New Game \n")
+            game_end = True
     elif o == 3:
         print("o won")
+<<<<<<< HEAD
         exit()
+=======
+        gamefinish = input("Do you want to start again? ")
+        if gamefinish.lower() != "yes":
+            exit()
+        else:
+            print("\n New Game \n")
+            game_end = True
+def check(): #Checks every line for winner
+        check_if_win(game[0])
+        check_if_win(game[1])
+        check_if_win(game[2])
+        check_if_win(column[0])
+        check_if_win(column[1])
+        check_if_win(column[2])
+        check_if_win(cross[0])
+        check_if_win(cross[1])
+>>>>>>> 142e32906b84dbdafe7fc2a6b150c4e7c9c993f1
 
 
 def check():  # Checks every line for winner
@@ -69,30 +93,57 @@ def end():  # Checks if game has ended
             if j == " ":
                 return True
 
-
+game_end = False
 game = [[" ", " ", " "],
+<<<<<<< HEAD
         [" ", " ", " "],
         [" ", " ", " "]]
 column = [[game[0][0], game[1][0], game[2][0]], [game[0][1],
                                                  game[1][1], game[2][1]], [game[0][2], game[1][2], game[2][2]]]
 cross = [[game[0][0], game[1][1], game[2][2]],
          [game[0][2], game[1][1], game[2][0]]]
+=======
+    [" ", " ", " "],
+    [" ", " ", " "]] 
+>>>>>>> 142e32906b84dbdafe7fc2a6b150c4e7c9c993f1
 i = 0
-
-
 while end():
+    draw_board()
+    column = [[game[0][0], game[1][0], game[2][0]], [game[0][1],
+                game[1][1], game[2][1]], [game[0][2], game[1][2], game[2][2]]]
+    cross = [[game[0][0], game[1][1], game[2][2]],
+        [game[0][2], game[1][1], game[2][0]]]  
     if i % 2 == 0:
         m = "X"
     else:
         m = "O"
     if m == "X":
         check()
+        if game_end == True:
+            game = [[" ", " ", " "],
+                    [" ", " ", " "],
+                    [" ", " ", " "]] 
+            i = 0
+            game_end = False
+            continue
         print("Now is X move\n")
         play()
     elif m == "O":
         check()
+        if game_end == True:
+            game = [[" ", " ", " "],
+                    [" ", " ", " "],
+                    [" ", " ", " "]] 
+            i = 0
+            game_end = False
+            continue
         print("Now is O move\n")
         play()
+<<<<<<< HEAD
     draw_board()
     i += 1
 print("\n  ---No more places---")
+=======
+    i += 1   
+print("\n  ---No more places---")
+>>>>>>> 142e32906b84dbdafe7fc2a6b150c4e7c9c993f1

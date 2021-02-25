@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+	<title>My Page</title>
+	
+	<meta name="description" content="Gra" />
+	<meta name="keywords" content="słowa, kluczowe, wypisane, po, porzecinku" />
+	
+	<link rel="stylesheet" href="style.css" type="text/css"/> 
+	<link rel="stylesheet" href="css/fontello.css" type="text/css"/> 
+	<link rel="stylesheet" href="f/css/fontello.css" type="text/css"/> 
+	<link rel="stylesheet" href="fontello/css/fontello.css" type="text/css"/> 
+	
+	<script type="text/javascript" src="timer.js"></script>
+	<script type="text/javascript" src="slajder.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type= "text/javascript">
+	
+	
+	
+	var rand =	Math.floor(Math.random() * 10+1);
+	
+	
+	 
+	
+	
+	var i = 5;
+	
+	
+	function sprawdz()
+	{
+		
+		
+		var liczba = document.getElementById("pole").value;
+
+	
+		
+
+
+
+{
+if (rand == liczba  &&  i > 0)
+	{
+	document.getElementById("wynik").innerHTML="Poprawna liczba";
+	
+	}
+	
+	
+	
+	else if (rand != liczba &&  i > 0)
+	{
+		
+	
+	document.getElementById("wynik").innerHTML="Nie poprawna liczba <br> <br>                      Próby: " + i;
+	
+	i --;
+	
+	
+	
+	}
+else if (i == 0)
+{
+	document.getElementById("wynik").innerHTML="Koniec gry, przegrałeś!";
+}
+}
+	
+	}
+	function reload()
+	{
+	location.reload();
+	}
+	
+	</script>
+	
+</head>
+
+<body onload="odliczanie() + zmienslajd()" >
+	<div id= "container"> 
+	<div class= "rectangle"><div id= "logo"><a href="index.html" class="tilelink"><i> Dawid Roszman</i></a></div>
+	<div id= "zegar"></div>
+	</div>
+	
+	
+	<div class= "square"><a href="index.html"><div class= "tile1"><a href="index.html"class= "tilelink">Gra<br><i class=" icon-gamepad" >  </i> </a> </div><div class= "tile1"><a href="randnumb.html" class="tilelink">Losowe liczby<br><i class=" icon-number"></i></a></div>
+	
+	<div style="clear:both"></div>
+	<div id= "slider"></div>
+	
+	
+	</div>
+	
+<div class="tile5">
+<div id "opis"
+>Zgadnij liczbę od 1 do 10. Powodzenia!</div>
+<input type= "text" id= "pole"/>
+<input type= "submit" id= "sprawdz" value="Sprawdź" onclick="sprawdz()"/>
+<br><br><br>
+<div id= "wynik"></div>
+<div id= "wynik1"></div>
+<input type="button" value="Od nowa" onclick="reload()" id="but"/>
+</div>
+<div style="clear:both"></div>
+
+<div class= "yt1"></div>
+<div class= "yt"><i class="icon-youtube"></i></div>
+<div class= "fb"><i class="icon-facebook-rect"></i></div>
+<div class= "tw"><i class="icon-twitter-bird"></i></div>
+<div class= "gplus"><i class="icon-googleplus-rect"></i></div>
+
+<div id= "footer">&copy; Wszelkie prawa zastrzeżone!</div>
+</body>
+</html>
