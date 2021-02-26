@@ -1,0 +1,2 @@
+Item: Ghast Tear - Effects: Speed 2 Regeneration 3 Saturation 3 Fire Resistance - Name: Gold Bold"Tear Of Death" - Lore: Red Italian "The Only Tear Shed By Death" 
+HEAL DODAJ I SPEED can be disabled by /speed 0 0

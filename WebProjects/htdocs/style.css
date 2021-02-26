@@ -1,0 +1,50 @@
+body {
+  background-color: darkslategray;
+}
+#welcome {
+  font-size: 32px;
+  text-align: center;
+  color: moccasin;
+}
+#menu {
+  margin: 12px;
+  color: antiquewhite;
+  font-size: 20px;
+  padding-left: 20px;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+  color: antiquewhite;
+}
+#responde {
+  margin: auto;
+  width: 50%;
+  border: 3px solid rgb(12, 139, 112);
+  padding: 10px;
+}
+.content {
+  text-align: center;
+  color: burlywood;
+  font-size: 20px;
+  border: 3px solid rgb(12, 139, 112);
+}
+.download:hover {
+  color: rgb(12, 139, 112);
+  background-color: bisque;
+  cursor: pointer;
+}
+#submited {
+  background-color: rgb(17, 126, 84);
+  color: rgb(245, 228, 182);
+  font-size: 28px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  margin-left: 25%;
+}
+#submited:hover {
+  background-color: rgb(245, 228, 182);
+  color: rgb(17, 126, 84);
+  cursor: pointer;
+}
