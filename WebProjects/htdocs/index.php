@@ -7,21 +7,9 @@
     <title>Website 1.0</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
-    <script src="script.js"></script>
+  <body onload="Clock()">
     <br>
-    <?php
-	$t = date("H");
-	if(($t <"12")and ($t > "6")){
-    echo '<div id="welcome">Good Morning</div>';
-  }
-  elseif(($t > "12")and($t <"18")){
-    echo '<div id="welcome">Good Afternoon</div>';
-  }
-  else{
-    echo '<div id="welcome">Good Night</div>';
-  }
-    ?>
+    <div id="welcome" id="clock"></div>
     <br>
     <br>
     <div id="welcome">Welcome to my Website 1.0 </div>
@@ -38,5 +26,6 @@
         if(isset($_SESSION["failed_login"])) echo $_SESSION["failed_login"];
         unset($_SESSION["failed_login"]);
         ?>
+    <script src="script.js"/>
   </body>
 </html>
