@@ -1,0 +1,42 @@
+{%extends "base.html"%}
+
+{%block title%}Register{%endblock%}
+{%block content%}
+{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for msg in messages%}
+				<p style="
+				color:white;">{{msg}}</p>
+			{%endfor%}
+
+		{% endif %}
+	{% endwith %}
+
+<h1 style:"text-align:center;">Register here: </h1>
+<br><br>
+<form class="loginForm" method="POST" action="#">
+  <div class="mb-3">
+    <label class="form-label">Username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name = "rUsername">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="rEmail">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input name="rPassword" type="password" class="form-control" id="exampleInputPassword1">
+    <label for="exampleInputPassword1" class="form-label">Retype Password</label>
+    <input name="rRepassword" type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="button">Submit</button>
+</form>
+
+
+{%endblock%}
+{% block links%}
+<a class="nav-link" href="/">Home</a>
+<a class="nav-link" href="about me">About me</a>
+<a class="nav-link" href="contact">Contact</a>
+<a class="nav-link" href="login">Login</a>
+<a class="nav-link" href="register">Register</a>
+{%endblock%}
