@@ -1,19 +1,18 @@
-function HoursToText(i){
-    if((i > 5 ) && (i<12)){
-        i = "Good Morning";
-    }
-    else if(i<17){
-        i = "Good Afternoon";
-    }
-    else{
-        i = "Good Night";
-    }
-    return i;
+function TimeToText(i){
+	var text;
+	if((i<6) && (i>19)){
+		text = "Good Night";
+	}else if((i>6)&&(i<12)){
+		text = "Good Morning";
+	}else{
+		text = "Good Afternoon";
+	}
+	return text;
+}
+function myFunction() {
+	  var d = new Date();
+	  var x = document.getElementById("demo");
+	  var h = d.getHours();
+	  x.innerHTML = TimeToText(h);
 }
 
-function Clock(){
-    var d = new Date();
-    var doc = document.getElementById("clock");
-    var h = HoursToText(d.getHours());
-    doc.innerHTML = h;
-}

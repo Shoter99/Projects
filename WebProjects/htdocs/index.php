@@ -9,7 +9,7 @@
   </head>
   <body onload="Clock()">
     <br>
-    <div id="welcome" id="clock"></div>
+    <div id="welcome" id="demo"></div>
     <br>
     <br>
     <div id="welcome">Welcome to my Website 1.0 </div>

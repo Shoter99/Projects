@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pl">
+<head>
+	  <meta charset="utf-8">
+
+	  <title>{%block title%}{% endblock%}</title>
+	      <meta name="description" content="Strona internetowa serweru iland">
+	        <meta name="author" content="Dawid Roszman">
+		  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+	body {
+  background-color: #2e2e2e;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+h1 {
+  color: white;
+}
+#header {
+  width: 100%;
+  color: white;
+  font-size: 38px;
+  margin-top:15%;
+  top: 1px;
+  
+}
+
+
+</style>
+</head>
+
+<body>
+		<div id="header">
+			{%block header%}{%endblock%}
+		</div>
+		<div id="content">
+			{%block content%}{%endblock%}
+		</div>
+
+	  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
