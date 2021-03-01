@@ -1,4 +1,160 @@
 {%extends "base.html" %}
 {%block title%}Iland{%endblock%}
-{%block header%}<h1>Welcome to Iland</h1>{%endblock%}
-{%block content%}<h2>The content of page</h2>{%endblock%}
+{%block header%}
+<h1 style="letter-spacing: 10px;">Iland</h1>
+<div id="menu">
+    <a id="link1" href="#" class="link">Ogłoszenia</a>
+    <a id="link2" href="#" class="link">Sklep</a>
+</div>
+
+
+{%endblock%}
+{%block content%}
+
+<div id="contact">
+    <a href='https://discord.gg/mnPGCHHMF5' target="_blank" class="link" id="dcbutton">Dołącz do naszego Discorda</a><br><br><br><br>
+    <span style="color: grey; opacity: 0.5; ">LUB</span>
+    <div id="contactForm">
+    <h2>Skontaktuj się z nami</h2>
+    <form method="POST" action="#">
+        <input class="text" type="text" name="username" placeholder="*Nazwa: " required=True>
+        <br><br>
+        <input class="text" type="email" name="email" placeholder="*Email: " required=True>
+        <br><br>
+        <input class="text" type="text" name="msg" placeholder="*Treść wiadomości: " required=True>
+        <br><br>
+        <input type="submit" value="Prześlij">
+    </form>
+    </div>
+</div>
+<div id="updates">
+    <h2>Ogłoszenia</h2>
+    <h4>Zobacz co zmieniło się na serwerze</h4>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+</div>
+<div id="prices">
+    <h2 style="font-size: 48px;">Cennik</h2><br>
+    <a class="link" href="https://iland.tebex.io" target="_blank" style="margin:20px; font-family:'PT Sans Narrow'">Odwiedź nasz sklep</a>
+    <div id="priceslist">
+        <div class="rang">
+            <h2>VIP</h2>
+            <span class="content">
+                Kit Vip(co 5 dni odbiór)
+                <br><br>
+                Prefix VIP (kolor zielony)
+                <br><br>
+                Dostep do komend: /rtp gui vip, /back
+                <br><br>
+                Diamont set: protection 1 unbreaking 1
+                <br><br>
+                Diamond Tools: Sword: Sharpness 1, unbreaking 1
+                <br><br>
+                Tools: effeciency 1, unbreaking 1 Bow: Power 1, unbreaking 1
+                <br><br>
+                Shield: unbreaking 1
+                <br><br>
+                8x reffile 32x steak
+                <br><br>
+                3x ,,klucz pierwszego stopnia"
+                <br><br><br><br><br>
+            </span>
+            <h2>12.30 PLN</h2>
+            <a class="link" href="https://iland.tebex.io/package/4339678" target="_blank">Kup Teraz</a>
+        </div>
+        <div class="rang">
+            <h2>VIP+</h2>
+            <span class="content">
+                Kit vip+ (co 5 dni odbiór)
+                <br><br>
+                Prefix: VIP+ (kolor fioletowy) z pogrubieniem
+                <br><br>
+                Dostep do komend: /rtp vip, /craft, /enderchest, /back
+                <br><br>
+                Diamont set: protection 2 unbreaking 2
+                <br><br>
+                Diamond Tools: Sword: Sharpness 2, unbreaking 2 
+                <br><br>
+                Tools: effeciency 2, unbreaking 2 
+                <br><br>
+                Bow: Power 2, unbreaking 2 
+                <br><br>
+                Shield: unbreaking 2
+                <br><br>
+                16x reffile
+                <br>
+                48x steak 
+                <br><br>
+                2x ,,klucz drugiego stopnia" 
+                <br><br>
+            </span>
+            <h2>18.45 PLN</h2>
+            <a class="link" href="https://iland.tebex.io/package/4341040" target="_blank">Kup Teraz</a>
+        </div>
+        <div class="rang">
+            <h2>VIP++</h2>
+            <span class="content">
+                Kit vip++ (co 5 dni odbiór)
+                <br><br>
+                Prefix: VIP++ (kolor turkusowy) z pogrubieniem
+                <br><br>
+                Dostep do komend: /rtp gui vip, /anvil, /craft, /enderchest, /back
+                <br><br>
+                Diamont set: protection 3, unbreaking 3
+                <br><br>
+                Diamond Tools: Sword: Sharpness 3, unbreaking 3
+                <br><br>
+                Tools: effeciency 3, unbreaking 3 
+                <br><br>
+                Bow: Power 3, unbreaking 3
+                <br><br>
+                Shield: unbreaking 3
+                <br><br>
+                16x reffile
+                <br>
+                1x Enchanted Golden Apple
+                <br>
+                64x steak
+                <br><br>
+                2x ,,klucz trzeciego stopnia" 
+                
+            </span>
+            <h2>24.60 PLN</h2>
+            <a class="link" href="https://iland.tebex.io/package/4341051" target="_blank">Kup Teraz</a>
+        </div>
+        <div class="rang">
+            <h2>VIP++</h2>
+            <span class="content">
+                Kit mvp (co 10 dni odbiór)
+            <br><br>
+            Prefix: MVP (kolor żółty) z pogrubieniem
+            <br><br>
+            Dostep do komend: /rtp gui vip, /anvil, /craft, /enderchest, /repair
+            <br><br>
+            Diamont set: protection 4, unbreaking 3
+            <br><br>
+            Diamond Tools: Sword: Sharpness 4, unbreaking 3
+            <br><br>
+            Tools: effeciency 4, unbreaking 3
+            <br><br>
+            Bow: Power 5, unbreaking 3 
+            <br><br>
+            Shield: unbreaking 3 
+            <br><br>
+            24x reffile 
+            <br>
+            3x Enchanted Golden Apple
+            <br>
+            128x steak
+            <br><br>
+            4x ,,klucz trzeciego stopnia"
+            </span>
+            <h2>36.90 PLN</h2>
+            <a class="link" href="https://iland.tebex.io/package/4341058" target="_blank">Kup Teraz</a>
+        </div>
+    </div>
+</div> 
+
+{%endblock%}
