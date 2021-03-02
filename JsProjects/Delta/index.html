@@ -1,8 +1,121 @@
 <!doctype html>
-<html>
-	<head>
-	</head>
-	<body></body>
-	
-</html>
 
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+
+  <title>Calculate Delta</title>
+  <meta name="description" content="Site that calculate delta">
+  <meta name="author" content="Dawid Roszman">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet"> 
+  <style>
+    body{
+      background-color: #2e2e2e;
+      font-family: 'Open Sans';
+    }
+    h1{
+      font-size: 60px;
+    }
+    main{
+      position: absolute;
+      margin: auto;
+      top: -25%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 600px;
+      height: 400px;
+      color: white;
+      text-align:center;
+    }
+    input{
+      width: 56px;
+      background-color: rgba(0,0,0,0);
+      color: white;
+      border: none;
+      text-align: right;
+      font-size: 28px;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type=number]{
+      -moz-appearance: textfield;
+      outline: none;
+    }
+    form{
+      font-size: 28px;
+    }
+    input[type=submit]{
+      text-align: center;
+      padding: 10px;
+      margin-top: 25px;
+      width: 150px;
+      background-color: rgb(71, 163, 71);
+      color: whitesmoke;
+      border-radius: 10px;
+    }
+    input[type=submit]:hover{
+      transform: scale(1.1);
+      background-color: rgb(75, 187, 75);
+      cursor: pointer;
+      transition: all ease-in-out 0.25s;
+    }
+    #answer{
+      font-size: 36px;
+    }
+    span{
+      border-bottom: 3px dashed white;
+      padding-bottom: 25px;
+    }
+  </style>
+</head>
+
+<body>
+    <main>
+      <h1>Calculate Delta</h1>
+      <div id="container">
+        <form name="Delta" onsubmit="calculateDelta()">
+          <input required="true" type="number" id="a" placeholder="a">x&sup2;+
+          <input required="true" type="number" id="b" placeholder="b">x+
+          <input required="true" style="text-align: left;" type="number" id="c" placeholder="c">
+          <br>
+          <input type="submit" value="Oblicz">
+        </form>
+      </div>
+      <p id="answer"></p>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+    function calculateDelta(){
+      var a, b, c, ans, delta, sqrdelta, x1, x2;
+      a = document.getElementById("a").value;
+      b = document.getElementById("b").value;
+      c = document.getElementById("c").value;
+      delta = Math.pow(b,2)-(4*a*c);
+      //check if delta == 0
+      if(delta < 0){
+        document.getElementById("answer").innerHTML = "Delta < 0";
+        return 0;
+      }
+      if(delta == 0){
+        x1 = -b/(2*a);
+        document.getElementById("answer").innerHTML = "Delta equals 0, x = "+x1;
+        return 0;
+      }
+      sqrdelta = Math.sqrt(delta);
+      if(sqrdelta != Math.trunc(sqrdelta)){
+        document.getElementById("answer").innerHTML = "Squere root of delta is not an integer";
+        return 0;
+      }
+      x1 = (-b-sqrdelta)/(2*a);
+      x2 = (-b+sqrdelta)/(2*a);
+      document.getElementById("answer").innerHTML = "<span>Delta ="+delta+"</span><br><br><span> Square root of delta = "+sqrdelta+"</span><br><br> x1="+x1+", x2="+x2;
+      return 0;
+    }
+  </script>
+</body>
+</html>
