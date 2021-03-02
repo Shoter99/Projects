@@ -83,7 +83,7 @@
           <input required="true" type="number" id="b" placeholder="b">x+
           <input required="true" style="text-align: left;" type="number" id="c" placeholder="c">
           <br>
-          <input onclick="calculateDelta()" type="submit" value="Calculate">
+          <input onclick="calculateDelta()" type="submit" value="Oblicz">
         </div>
       </div>
       <p id="answer"></p>
