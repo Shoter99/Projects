@@ -99,19 +99,19 @@
       sqrdelta = Math.sqrt(delta);
       //check if delta == 0
       if(delta < 0){
-        document.getElementById("answer").innerHTML = "Delta < 0";
+       $("#answer").html("Delta < 0");
       }
       else if(delta == 0){
         x1 = -b/(2*a);
         document.getElementById("answer").innerHTML = "Delta equals 0, x = "+x1;
       }
       else if(sqrdelta != Math.trunc(sqrdelta)){
-        document.getElementById("answer").innerHTML = "Squere root of delta is not an integer";
+        $('#answer').html("Squere root of delta is not an integer");
       }
       else{
       x1 = (-b-sqrdelta)/(2*a);
-      x2 = (-b+sqrdelta)/(2*a);
-      document.getElementById("answer").innerHTML = "<span>Delta ="+delta+"</span><br><br><span> Square root of delta = "+sqrdelta+"</span><br><br> x1="+x1+", x2="+x2;
+      x2 = (-b+sqrdelta)/(2*a); 
+      $('#answer').html("<span>Delta ="+delta+"</span><br><br><span> Square root of delta = "+sqrdelta+"</span><br><br> x0="+x1+", x2="+x2);
       }
     }
   </script>
