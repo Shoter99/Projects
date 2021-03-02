@@ -6,7 +6,18 @@ body {
   /* Background pattern from Toptal Subtle Patterns */
   background-image: url(img/bg.png);
 }
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 #main {
+  animation: 1s ease-out 0s 1 slideInFromBottom;
   background-image: url("img/bgimage.png");
   position: fixed;
   top: 0;
@@ -20,12 +31,15 @@ body {
   -webkit-box-shadow: 10px 10px 61px 20px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 61px 20px rgba(0, 0, 0, 0.75);
 }
-
 .title {
   font-size: 60px;
   font-family: "RocknRoll One";
   color: whitesmoke;
   padding: 10px;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 a.link {
   color: whitesmoke;
