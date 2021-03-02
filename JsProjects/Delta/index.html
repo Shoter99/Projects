@@ -46,7 +46,7 @@
       -moz-appearance: textfield;
       outline: none;
     }
-    form{
+    #form{
       font-size: 28px;
     }
     input[type=submit]{
@@ -78,13 +78,13 @@
     <main>
       <h1>Calculate Delta</h1>
       <div id="container">
-        <form name="Delta" onsubmit="calculateDelta()">
+        <div id="form">
           <input required="true" type="number" id="a" placeholder="a">x&sup2;+
           <input required="true" type="number" id="b" placeholder="b">x+
           <input required="true" style="text-align: left;" type="number" id="c" placeholder="c">
           <br>
-          <input type="submit" value="Oblicz">
-        </form>
+          <input onclick="calculateDelta()" type="submit" value="Oblicz">
+        </div>
       </div>
       <p id="answer"></p>
     </main>
@@ -96,25 +96,23 @@
       b = document.getElementById("b").value;
       c = document.getElementById("c").value;
       delta = Math.pow(b,2)-(4*a*c);
+      sqrdelta = Math.sqrt(delta);
       //check if delta == 0
       if(delta < 0){
         document.getElementById("answer").innerHTML = "Delta < 0";
-        return 0;
       }
-      if(delta == 0){
+      else if(delta == 0){
         x1 = -b/(2*a);
         document.getElementById("answer").innerHTML = "Delta equals 0, x = "+x1;
-        return 0;
       }
-      sqrdelta = Math.sqrt(delta);
-      if(sqrdelta != Math.trunc(sqrdelta)){
+      else if(sqrdelta != Math.trunc(sqrdelta)){
         document.getElementById("answer").innerHTML = "Squere root of delta is not an integer";
-        return 0;
       }
+      else{
       x1 = (-b-sqrdelta)/(2*a);
       x2 = (-b+sqrdelta)/(2*a);
       document.getElementById("answer").innerHTML = "<span>Delta ="+delta+"</span><br><br><span> Square root of delta = "+sqrdelta+"</span><br><br> x1="+x1+", x2="+x2;
-      return 0;
+      }
     }
   </script>
 </body>
