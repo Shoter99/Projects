@@ -19,21 +19,42 @@
     <form method="POST" action="#">
         <input class="text" type="text" name="username" placeholder="*Nazwa: " required=True>
         <br><br>
-        <input class="text" type="email" name="email" placeholder="*Email: " required=True>
+        <input class="text" type="email" name="email" placeholder="Email: ">
+        <br><br>
+        <input class="text" type="text" name="subject" placeholder="*Temat: " required=True>
         <br><br>
         <input class="text" type="text" name="msg" placeholder="*Treść wiadomości: " required=True>
         <br><br>
         <input type="submit" value="Prześlij">
     </form>
+    {% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for msg in messages%}
+				<p style="
+					color:white;
+                    font-family: 'Arial';
+                    font-size: 18px;
+				">{{msg}}</p>
+			{%endfor%}
+		{% endif %}
+	{% endwith %}
     </div>
 </div>
 <div id="updates">
     <h2>Ogłoszenia</h2>
     <h4>Zobacz co zmieniło się na serwerze</h4>
-    <br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br>
+    <div class="update">
+        <br><br>
+        ═══ ◥◣◆◢◤𝓞 𝓼𝓮𝓻𝔀𝓮𝓻𝔃𝓮◥◣◆◢◤ ══
+        <br><br>
+        ➤ Aktualnie staramy się stworzyć nowy rodzaj trybu, na którym znajduje się połączenie przeróżnych, spójnych ze sobą pluginów należacych do takich trybów jak: Housing, Survival, czy Gildie.
+        <br><br>
+        ➤ Planujemy w najbliższym czasie dodać nowe tryby związane z potrzebami graczy - nawet w trakcie trwania edycji jesteśmy otwarci na przeanalizowanie propozycji. 
+        <br><br>
+        ➤ Serwer posiada doświadczoną administracje w wielu aspektach tj.  budownictwo, zarządzanie i programowanie. 
+        <br><br>
+        ➤ W kwestii rozwoju serwer bardzo dobrze sobie radzi - w ciągu pierwszych dwóch tygodni udało nam się zebrać na serwerze Minecraft około 300 osób zalogowanych, a na serwerze Discord około 100. 
+    </div>
 </div>
 <div id="prices">
     <h2 style="font-size: 48px;">Cennik</h2><br>

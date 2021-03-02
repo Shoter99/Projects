@@ -1,231 +1,41 @@
 <!doctype html>
 <html lang="pl">
 <head>
-	  <meta charset="utf-8">
-
-	  <title>{%block title%}{% endblock%}</title>
-	      <meta name="description" content="Strona internetowa serweru iland">
-	        <meta name="author" content="Dawid Roszman">
-		  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-		  <link rel="preconnect" href="https://fonts.gstatic.com">
-		  <link rel="preconnect" href="https://fonts.gstatic.com">
-		  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=PT+Sans+Narrow&display=swap" rel="stylesheet"> 
-		  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-		  <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{ url_for('static', filename='jquery.scrollTo.min.js') }}"></script>
-<script>
-	jQuery(
-	function($)
-	{
-		$.scrollTo(0);
-
-		$('#link1').click(function()
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Strona internetowa serweru iland">
+	<meta name="author" content="Dawid Roszman">
+	<title>{%block title%}{% endblock%}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Bangers&family=PT+Sans+Narrow&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="{{ url_for('static', filename='jquery.scrollTo.min.js') }}"></script>
+	<script>
+		jQuery(
+		function($)
 		{
-			$.scrollTo($('#updates'),800);
-		});
-		$('#link2').click(function(){
-			$.scrollTo($('#prices'),800);
-		});
-	}
+			$.scrollTo(0);
 
-	);
+			$('#link1').click(function()
+			{
+				$.scrollTo($('#updates'),800);
+			});
+			$('#link2').click(function(){
+				$.scrollTo($('#prices'),800);
+			});
+		}
 
-</script>
+		);
+
+	</script>
 
 </head>
-<style>
-	@keyframes pop{
-	from{
-		font-size: 24px;
 
-	}
-	to{
-		font-size: 26px;
-	}
-}
-h2{
-	color:white; 
-	font-size: 38px; 
-	letter-spacing: 2px; 
-	font-weight: 100; 
-	margin-bottom: 20px;
-	font-family: 'Bangers';
-}
-h4{
-	color:white;
-	font-family: 'PT Sans Narrow';
-	margin-top: 0;
-	padding-top: 0;
-	letter-spacing: 2px;
-}
-		body {
-			background: rgb(7,7,8);
-background: linear-gradient(90deg, rgba(7,7,8,1) 10%, rgba(66,66,66,1) 59%, rgba(31,31,31,1) 94%);
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-h1 {
-  color: white;
-  margin-bottom: 15px;
-}
-#header {
-  width: 100%;
-  color: white;
-  font-size: 48px;
-  margin-top:15%;
-  margin-bottom: 10%;
-  letter-spacing: 6px;
-  font-family: "Bangers";
-}
-#menu{
-	padding-right: 25px;
-}
-div{
-	display: block;
-}
-.link{
-	border: 3px solid white;
-	color: white;
-	background-color: rgba(255,255,255,0);
-	font-size: 24px;
-	text-decoration: none;
-	padding: 5px;
-	padding-left: 15px;
-	padding-right: 15px;
-	border-radius: 13px;
-	letter-spacing: 3px;
-	margin-left: 15px;
-	font-family: 'PT Sans Narrow';
-}
-.link:hover{
-	animation-name: pop;
-	animation-duration: 0.5s;
-	background-color: white;
-		color: black;
-		font-size: 26px;
-}
-#contact{
-	background-color: rgba(0, 0, 0, 0.5);
-	padding: 20px;
-	padding-top: 5%;
-	font-family: "PT Sans Narrow";
-	height: 700px;
-
-}
-#contactForm{
-	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 5px;
-	margin-top: 5px;
-	font-family: "PT Sans Narrow";
-}
-#prices{
-	background-color: rgba(8, 8, 8, 0.3);
-	padding: 30px;
-}
-#footer{
-
-	background-color:rgba(0, 0, 0, 0.1);
-	width: 100%;
-	color: rgba(255,255,255,0.4);
-	padding: 10px;
-	font-size: 12px;
-}
-@media screen and (max-width:425px){
-	#footer{
-		font-size: 2px;
-	}
-}
-.text{
-	background-color: rgba(red, green, blue, 0);
-	color:rgb(0, 0, 0);
-
-}
-input[type="text"],
-input[type="email"]{
-	background-color: rgba(0,0,0,0);
-	border: 0;
-	border-bottom: 2px solid rgba(255,255,255,0.5);
-	color: rgb(202, 202, 202);
-	outline: none;
-	padding: 15px 15px 5px 0px;
-	font-size: 15px;
-}
-input[type="text"]:focus,
-input[type="email"]:focus{
-	font-size: 16px;
-	border-bottom: 2px solid rgba(255,255,255,1);
-	color: white;
-
-}
-input[type="submit"]{
-	padding: 15px 50px 15px 50px;
-	background-color: rgb(72, 153, 72);
-	color: white;
-	border: none;
-	margin: 20px;
-	border-radius: 12px;
-	font-size: 24px;
-	letter-spacing: 2px;
-	font-family: "PT Sans Narrow";
-}
-input[type="submit"]:hover{
-	background-color: rgb(113, 192, 113);
-	color: white;
-	padding: 15px 50px 15px 50px;
-	cursor: pointer;
-}
-
-#dcbutton{
-	background-color: rgb(69, 131, 69);
-	letter-spacing: 1px;
-	padding: 10px 25px;
-	border: none;
-}
-#dcbutton:hover{
-	background-color:  rgb(101, 173, 101);
-	color: white;
-}
-.rang{
-	float:left;
-	width:19%;
-	padding: 50px;
-	padding-top: 45px;
-}
-@media screen and (max-width:1024px){
-	.rang{
-		width: 25%;
-		padding-left: 15%;
-	}
-}
-@media screen and (max-width: 1400px){
-	.rand{
-		padding: 25px;
-	}
-}
-.content{
-	color:rgba(184, 169, 169, 0.75);
-	font-size: 15px;
-	font-family: 'Arial';
-}
-a:active{
-	background-color: white;
-	color:rgb(0, 0, 0);
-}
-#prices{
-	padding-left: 5%;
-	padding-right: 5%;
-}
-#prices::after{
-	content:"";
-	clear:both;
-	display:table;
-}
-</style>
 <body>
 		<div id="header">
 			{%block header%}{%endblock%}
