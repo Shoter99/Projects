@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		
+		<meta type="author" content="Dawid Roszman">
+		<title>Dawid Roszman</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=DotGothic16&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+		<style>
+			body{
+			background-image: url("{{url_for('static', filename='bg.png')}}");
+		}
+		</style>
+	</head>
+	<body>
+		<div id='main'>
+			<div class="title">Dawid Roszman</div>
+			<div id="subtitle">
+				<a style="cursor: default; pointer-events: none; opacity: 0.5" style="margin-right: 25px; font-family: 'Akaya Telivigala'; font-size: 32px;" class='link' href="photo.html">Photography</a>
+				<a style="font-family: 'DotGothic16';" class='link' href="/login">Programming</a>
+			</div>
+		</div>
+		
+	</body>
+</html>

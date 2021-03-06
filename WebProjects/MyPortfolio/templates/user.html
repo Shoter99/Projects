@@ -1,0 +1,63 @@
+{%extends "base.html"%}
+
+{%block title%}Shop{%endblock%}
+{%block content%}
+{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for msg in messages%}
+				<p style="
+				animation: fade-out 6s;
+				opacity: 0;
+				color:white;">{{msg}}</p>
+			{%endfor%}
+
+		{% endif %}
+	{% endwith %}
+
+<h1>Welcome to the Password Storage, {{usr}}!</h1>
+<form  id="addToDataBase" method="POST" action="#">
+  <input type="text" name="slogin" placeholder="Login: " required="true">
+  <input type="password" name="spassword" placeholder="Password: " required="true">
+  <input type="url" name="surl" placeholder="Site url: ">
+  <input type="text" name="sapp" placeholder="App: "><br>
+  <input type="submit">
+</form>
+<table id="credsTable">
+  <tr class="borderbt">
+    <th class="tableTitle">Login</th>
+    <th class="tableTitle">Password</th>
+    <th class="tableTitle">URL</th>
+    <th class="tableTitle">App</th>
+  </tr>
+{%for cred in crd%}
+  {% set pass = f.decrypt(cred.password).decode('utf-8')%}
+  <div style="border: 2px solid white;"></div>
+  <tr>
+  <form method="POST" action="/editRecord"><input type="hidden" name="credToEdit" value={{cred._id}}>
+
+    <th> <input type="text" name="loginToEdit" value={{cred.login}}></th>
+    <th> <input type="text" class="passw" name="passwordToEdit" value={{pass}}></th>
+    <th> <input type="url" name="urlToEdit" value={{cred.url}}></th>
+    <th> <input type="text" name="appToEdit" value={{cred.app}}></th>
+    <tr class="borderbt">
+    <th></th>
+    <th><input class="edit" type="submit"  value="Edit"></th>
+  </form>
+    <form method="POST" action="/deleteRecord" class="delete"><input type="hidden" name="creds" value={{cred._id}}>
+      <th><input class="del" type="submit" value="Delete Record"></th>
+      <th>
+    </tr>
+
+    </form>
+  </tr>
+{% endfor%}
+</table>
+{%endblock%}
+{% block links%}
+<a class="nav-link" href="/">Home</a>
+<a class="nav-link" href="aboutme">About me</a>
+<a class="nav-link" href="contact">Contact</a>
+<a class="nav-link" href="login">Login</a>
+<a class="nav-link" href="register">Register</a>
+<a href="logout"><button class="button">Log out</button></a>
+{%endblock%}
