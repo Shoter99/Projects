@@ -52,6 +52,45 @@ class Credentials(db.Model):
         self.url = url
         self.app = app
         self.user = user
+class Questions(db.Model):
+    _id = db.Column("id", db.Integer, primary_key=True)
+    gender = db.Column(db.String(50))
+    q1 = db.Column(db.String(20))
+    q2 = db.Column(db.String(20))
+    q3 = db.Column(db.String(20))
+    q4 = db.Column(db.String(20))
+    q5 = db.Column(db.String(20))
+    q6 = db.Column(db.String(20))
+    q7 = db.Column(db.String(20))
+    q8 = db.Column(db.String(20))
+    q9 = db.Column(db.String(20))
+    q11 = db.Column(db.String(20))
+    q12 = db.Column(db.String(20))
+    q13 = db.Column(db.String(20))
+    q14 = db.Column(db.String(20))
+    q15 = db.Column(db.String(20))
+
+    def __init__(self, gender, q1, q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15):
+        self.gender = gender
+        self.q1 = q1
+        self.q2 = q2
+        self.q3 = q3
+        self.q4 = q4
+        self.q5 = q5
+        self.q6 = q6
+        self.q7 = q7
+        self.q8 = q8
+        self.q9 = q9
+        self.q10 = q10
+        self.q11 = q11
+        self.q12 = q12
+        self.q13 = q13
+        self.q14 = q14
+        self.q15 = q15
+
+
+
+
 
 
 @app.route("/")
@@ -211,7 +250,22 @@ def register():
     else:
         return render_template("register.html")
 
+@app.route("/ankieta", methods=["POST", "GET"])
+def ankieta():
+    if request.method=="POST":
+        gender = Questions(request.form['gender'], request.form['q1'], request.form['q2'], "", "", "", "", "", "", "", "", "", "", "", "", "",)
+        Questions.q1 = request.form['q1']
+        Questions.q2 = request.form['q2']
+        db.session.add(gender)
+        db.session.commit()
+        return redirect(url_for("ankieta"))
+    else:
+        Q1B = Questions.query.filter_by(q1="B").all()
+        return render_template("ankieta.html", q1b=len(Q1B))
+
+
 
 if __name__ == "__main__":
     db.create_all()
     app.run(debug=True, host="0.0.0.0")
+

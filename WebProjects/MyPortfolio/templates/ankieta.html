@@ -1,0 +1,80 @@
+{%extends "base.html"%}
+{%block title%}Nawyki żywieniowe u młodzieży{%endblock%}
+{%block style%}
+<style>
+	#ankieta{
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px dashed white;
+      }
+      #ankieta input{
+        text-align: left;
+      }
+      #ankieta label{
+        cursor: pointer;
+      }
+      .question{
+      	margin-left: auto;
+      	margin-right: auto;
+        text-align: left;
+        margin-left: 40px;
+        padding: 10px;
+        
+      }
+      .answers{
+      	margin-left: 25px;
+      }
+      h4{
+        color: white;
+        margin: 0px;
+        padding: 0px;
+      }
+</style>
+
+{%endblock%}
+{%block content%}
+	<h1>Nawyki żywieniowe u młodzieży</h1>
+	<form method="POST" id="ankieta" action="#">
+			<div class="question">
+				<h4>Podaj swoją płeć:</h4>
+				<div class="answers">
+					<input type="radio" id="male" name="gender" value="male">
+					<label for="male">Mężczyzna</label><br>
+					<input type="radio" id="female" name="gender" value="female">
+					<label for="female">Kobieta</label><br>
+				</div>
+			</div>
+		{%set a = "A"%}
+		{%set b = "B"%}
+		{%set c = "C"%}
+		{%set d = "D"%}
+		{%set e = "E"%}
+		{%set q = "q"%}
+		{%set titles = ['1.Jak często pijesz wodę: ', '2.Jak często jesz śniadanie: ']%}
+		{% for y in titles%}
+			<div class="question">
+				<h4>{{y}}</h4>
+				<div class="answers">
+					<input type="radio" id={{y[0]+a}} name={{q+y[0]}} value="A">
+					<label for={{y[0]+a}}>A. Cały czas</label><br>
+					<input type="radio" id={{y[0]+b}} name={{q+y[0]}} value="B">
+					<label for={{y[0]+b}}>B. Często</label><br>
+					<input type="radio" id={{y[0]+c}} name={{q+y[0]}} value="C">
+					<label for={{y[0]+c}}>C. Czasem</label><br>
+					<input type="radio" id={{y[0]+d}} name={{q+y[0]}} value="D">
+					<label for={{y[0]+d}}>D. Rzadko</label><br>
+				</div>
+		</div>
+		{%endfor%}
+		<input type="submit" class="button" value="Prześlij">
+	</form>
+<h3>{{q1b}}</h3>
+{%endblock%}
+{%block links%}
+<a class="nav-link" href="/">Home</a>
+<a class="nav-link" href="aboutme">About me</a>
+<a class="nav-link" href="contact">Contact</a>
+<a class="nav-link" href="login">Login</a>
+<a class="nav-link" href="register">Register</a>
+{%endblock%}
