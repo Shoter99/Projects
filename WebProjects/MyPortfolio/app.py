@@ -4,7 +4,7 @@ from datetime import timedelta
 from flask_sqlalchemy import SQLAlchemy
 from cryptography.fernet import Fernet
 import hashlib, os
-
+from jinja2.ext import loopcontrols
 token = """
 wf57yw3v
 7tqynoas
@@ -70,7 +70,7 @@ class Questions(db.Model):
     q14 = db.Column(db.String(20))
     q15 = db.Column(db.String(20))
 
-    def __init__(self, gender, q1, q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15):
+    def __init__(self, gender, q1, q2,q3="",q4="",q5="",q6="",q7="",q8="",q9="",q10="",q11="",q12="",q13="",q14="",q15=""):
         self.gender = gender
         self.q1 = q1
         self.q2 = q2
@@ -88,10 +88,14 @@ class Questions(db.Model):
         self.q14 = q14
         self.q15 = q15
 
+class Players(db.Model):
+    _id = db.Column("id",db.Integer, primary_key=True)
+    player = db.Column(db.String(100), unique=True)
+    points = db.Column(db.Integer)
 
-
-
-
+    def __init__(self, player, points=""):
+        self.player = player
+        self.point = points
 
 @app.route("/")
 def home():
@@ -253,7 +257,7 @@ def register():
 @app.route("/ankieta", methods=["POST", "GET"])
 def ankieta():
     if request.method=="POST":
-        gender = Questions(request.form['gender'], request.form['q1'], request.form['q2'], "", "", "", "", "", "", "", "", "", "", "", "", "",)
+        gender = Questions(request.form['gender'], request.form['q1'],request.form['q2'], request.form['q3'], request.form['q4'],request.form['q5'],request.form['q6'],request.form['q7'],request.form['q8'],request.form['q9'],request.form['q10'],request.form['q11'],request.form['q12'],request.form['q13'],request.form['q14'],request.form['q15'],)
         Questions.q1 = request.form['q1']
         Questions.q2 = request.form['q2']
         db.session.add(gender)
