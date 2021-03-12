@@ -64,6 +64,7 @@ class Questions(db.Model):
     q7 = db.Column(db.String(20))
     q8 = db.Column(db.String(20))
     q9 = db.Column(db.String(20))
+    q10 = db.Column(db.String(20))
     q11 = db.Column(db.String(20))
     q12 = db.Column(db.String(20))
     q13 = db.Column(db.String(20))
@@ -257,7 +258,7 @@ def register():
 @app.route("/ankieta", methods=["POST", "GET"])
 def ankieta():
     if request.method=="POST":
-        gender = Questions(request.form['gender'], request.form['q1'],request.form['q2'], request.form['q3'], request.form['q4'],request.form['q5'],request.form['q6'],request.form['q7'],request.form['q8'],request.form['q9'],request.form['q10'],request.form['q11'],request.form['q12'],request.form['q13'],request.form['q14'],request.form['q15'],)
+        gender = Questions(request.form['gender'], request.form['q1'],request.form['q2'], request.form['q3'], request.form['q4'],request.form['q5'],request.form['q6'],request.form['q7'],request.form['q8'],request.form['q9'],request.form['q10'],request.form['q11'])
         Questions.q1 = request.form['q1']
         Questions.q2 = request.form['q2']
         db.session.add(gender)

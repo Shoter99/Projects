@@ -52,29 +52,31 @@
 		{%set d = "D"%}
 		{%set e = "E"%}
 		{%set q = "q"%}
-		{%set titles = ['1. Ile posiłków dziennie zwykle spożywasz', "2. Jak często jesz fast-food'y?", '3. Jak często pijesz kawę?', '4. Jak często zdarza cie się pomijać śniadanie?', '5. Jak często jesz "na mieście"?', '6. Jak często pijesz alkochol?', '7. Jak często pijesz napoje słodkie lub energetyki?', '8. Jak często jesz słodycze?', '9. Jak często pijesz wodę?', '10. Jak często przygotowywujesz posiłki samodzielnie?', '11. Czy jesteś weganinem?']%}
+		{%set titles = ['1. Jak często przygotowywujesz posiłki samodzielnie?', "2. Jak często jesz fast-food'y?", '3. Jak często pijesz kawę?', '4. Jak często zdarza cie się pomijać śniadanie?', '5. Jak często jesz "na mieście"?', '6. Jak często pijesz alkochol?', '7. Jak często pijesz napoje słodkie lub energetyki?', '8. Jak często jesz słodycze?', '9. Jak często pijesz wodę?','10. Ile posiłków dziennie zwykle spożywasz', '11. Czy jesteś wegetarianinem czy weganinem?']%}
 		{% for y in titles%}
-			{% if y[0] == "1" and y[1] == "."%}
+			{% if y[0] == "1" and y[1] == "0"%}
 				<div class="question">
 				<h4>{{y}}</h4>
 				<div class="answers">
-					<input type="radio" id={{y[0]+a}} name={{q+y[0]}} value="A" required="true">
-					<label for={{y[0]+a}}>A. 1 lub wcale</label><br>
-					<input type="radio" id={{y[0]+b}} name={{q+y[0]}} required="true" value="B">
-					<label for={{y[0]+b}}>B. 2</label><br>
-					<input type="radio" id={{y[0]+c}} name={{q+y[0]}} value="C" required="true">
-					<label for={{y[0]+c}}>C. 3</label><br>
-					<input type="radio" id={{y[0]+d}} name={{q+y[0]}} value="D" required="true">
-					<label for={{y[0]+d}}>D. 4 lub więcej</label><br>
+					<input type="radio" id={{y[0]+y[1]+a}} name={{q+y[0]+y[1]}} value="A" required="true">
+					<label for={{y[0]+y[1]+a}}>A. 1-2</label><br>
+					<input type="radio" id={{y[0]+y[1]+b}} name={{q+y[0]+y[1]}} required="true" value="B">
+					<label for={{y[0]+y[1]+b}}>B. 3</label><br>
+					<input type="radio" id={{y[0]+y[1]+c}} name={{q+y[0]+y[1]}} value="C" required="true">
+					<label for={{y[0]+y[1]+c}}>C. 4</label><br>
+					<input type="radio" id={{y[0]+y[1]+d}} name={{q+y[0]+y[1]}} value="D" required="true">
+					<label for={{y[0]+y[1]+d}}>D. 5 lub więcej</label><br>
 				</div>
 			{% elif y[0] == "1" and y[1] == "1"%}
 				<div class="question">
 				<h4>{{y}}</h4>
 				<div class="answers">
-					<input type="radio" id={{y[0]+a}} name={{q+y[0]}} value="A" required="true">
-					<label for={{y[0]+a}}>A. Tak</label><br>
-					<input type="radio" id={{y[0]+b}} name={{q+y[0]}} required="true" value="B">
-					<label for={{y[0]+b}}>B. Nie</label><br>
+					<input type="radio" id={{y[0]+y[1]+a}} name={{q+y[0]+y[1]}} value="A" required="true">
+					<label for={{y[0]+y[1]+a}}>A. Wegetarianinem</label><br>
+					<input type="radio" id={{y[0]+y[1]+b}} name={{q+y[0]+y[1]}} required="true" value="B">
+					<label for={{y[0]+y[1]+b}}>B. Weganinem</label><br>
+					<input type="radio" id={{y[0]+y[1]+c}} name={{q+y[0]+y[1]}} value="C" required="true">
+					<label for={{y[0]+y[1]+c}}>C. Nie jestem</label><br>
 				</div>
 			{%else%}
 			<div class="question">
