@@ -35,7 +35,16 @@
 
 {%endblock%}
 {%block content%}
-	<h1>Nawyki żywieniowe u młodzieży</h1><br><br>
+	{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for msg in messages%}
+					<p style="
+						color:white;
+					">{{msg}}</p>
+				{%endfor%}
+			{% endif %}
+	{% endwith %}
+	<h1 style="font-size: 46px;">Nawyki żywieniowe u młodzieży</h1><br><br>
 	<form method="POST" id="ankieta" action="#">
 			<div class="question">
 				<h4>Podaj swoją płeć:</h4>
@@ -96,7 +105,6 @@
 		{%endfor%}
 		<input type="submit" class="button" value="Prześlij">
 	</form>
-<h3>{{q1b}}</h3>
 {%endblock%}
 {%block links%}
 <a class="nav-link" href="/">Home</a>
