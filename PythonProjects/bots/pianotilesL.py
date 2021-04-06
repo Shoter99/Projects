@@ -1,7 +1,7 @@
 import pyautogui as pg
 import keyboard as k
 import time
-pg.PAUSE = 0
+import mouse as me
 t = 0
 score = 300
 m = 3
@@ -16,7 +16,8 @@ def click(x, y):
     if t>score and score>1500:
         m+=0.2
         score += 50
-    pg.click((x, round(y+m)))
+    me.move(x,round(y+m))
+    me.click()
 
 
 def press():
