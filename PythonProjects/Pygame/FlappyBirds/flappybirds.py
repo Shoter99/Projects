@@ -108,7 +108,7 @@ pygame.display.set_caption("Flappy Bird")
 clock = pygame.time.Clock()
 
 # Game variables
-gameActive = True
+gameActive = False
 score = 0
 highscore = 0
 try:
