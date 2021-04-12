@@ -20,9 +20,18 @@
         <div id='blue' class="block"></div>
     </div>
     <div id="counter">
-        <div id="score">Your Score: 0</div>
-        <div id="highscore">Highscore: 0</div>
+        <div id="score">Your Score: <span id="scorenum"></span></div>
+        <div id="highscore">Highscore: {{player.highscore}}</div>
     </div>
     <script src='{% static  "script.js"%}'></script>
+    <script>
+        var score = document.getElementById("scorenum").value
+        console.log(value)
+        if(score > "{{player.highscore}}"){
+            '{{player.highscore}}' = score
+            {% player.save() %}
+            }
+
+    </script>
 </body>
 </html>

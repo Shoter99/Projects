@@ -1,5 +1,6 @@
 var green = document.getElementById('green')
 var score = 0
+var end = false
 const BOXES = document.querySelectorAll('.block')
 let moves = []
 
@@ -43,6 +44,7 @@ BOXES.forEach(el => {
         i++
         console.log(i)
     }else{
+        end = true
         BOXES.forEach(el => {
             el.style.display = 'none'
         })
