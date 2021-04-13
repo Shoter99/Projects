@@ -2,10 +2,17 @@ import pygame
 import os
 import sys
 import random
+import json
 
 
 def Join(name):
     return os.path.join('Assets', name)
+
+
+def SaveHighscore():
+    with open('data.json', 'w') as f:
+        hs = {'highscore': int(highscore)}
+        json.dump(hs, f)
 
 
 def DisplaySky(surface):
@@ -57,6 +64,23 @@ def OutOfScreen():
             bushList.remove(bush)
 
 
+def DisplayFont():
+    if gameActive:
+        scoreSurface = gameFont.render(f'{int(score)}', True, BLACK)
+        scoreRect = scoreSurface.get_rect(center=(WIDTH-100, 100))
+        screen.blit(scoreSurface, scoreRect)
+    if not gameActive:
+        scoreSurface = gameFont.render(f'Score: {int(score)}', True, BLACK)
+        scoreRect = scoreSurface.get_rect(center=(WIDTH/2, HEIGHT/2))
+        screen.blit(scoreSurface, scoreRect)
+
+        highScoreSurface = gameFont.render(
+            f'Highscore: {int(highscore)}', True, BLACK)
+        highScoreRect = scoreSurface.get_rect(
+            center=(WIDTH/2, HEIGHT/2+50))
+        screen.blit(highScoreSurface, highScoreRect)
+
+
 # cost variables
 WIDTH = 1000
 HEIGHT = 400
@@ -64,6 +88,7 @@ HEIGHT = 400
 
 GRAVITY = .9
 
+BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
 pygame.init()
@@ -71,8 +96,24 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Ninja Run")
 clock = pygame.time.Clock()
 
+
 # Game variables
+gameFont = pygame.font.Font('Karantina-Bold.ttf', 48)
+
 gameSpeed = 8
+
+score = 0
+highscore = 0
+
+try:
+    with open('data.json', 'r') as f:
+        data = json.load(f)
+    try:
+        highscore = data['highscore']
+    except Exception as e:
+        highscore = 0
+except Exception as e:
+    open('data.json', 'x')
 
 # importing skysurface
 skySurface = pygame.image.load(Join('sky.png'))
@@ -100,6 +141,7 @@ gameActive = False
 BUSHSPAWNER = pygame.USEREVENT
 pygame.time.set_timer(BUSHSPAWNER, 1200)
 
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -114,14 +156,19 @@ while True:
                 sky_x_pos = 0
                 gameSpeed = 5
                 gameActive = True
+                score = 0
                 pygame.time.set_timer(BUSHSPAWNER, 1200)
         if event.type == BUSHSPAWNER:
             bushList.append(SpawnBush())
-            bushSpawnTime = random.randint(800, 1200)
-            pygame.time.set_timer(BUSHSPAWNER, bushSpawnTime)
+            spawn = random.randint(0, 100)
+            if(spawn > 65):
+                pygame.time.set_timer(BUSHSPAWNER, 800)
+            else:
+                pygame.time.set_timer(BUSHSPAWNER, 1300)
     screen.fill(WHITE)
     DisplaySky(skySurface)
     DisplayGround()
+    DisplayFont()
     screen.blit(playerSurface, playerRect)
     DisplayBushes(bushList)
     if gameActive:
@@ -135,9 +182,14 @@ while True:
         if sky_x_pos <= -WIDTH/2:
             sky_x_pos = 0
         gameSpeed += 0.002
+        score += 0.05
         gameActive = CheckForCollisions(bushList)
     else:
         pygame.time.set_timer(BUSHSPAWNER, 0)
+        if score > highscore:
+            highscore = score
+        SaveHighscore()
+
     OutOfScreen()
     pygame.display.update()
     clock.tick(60)
