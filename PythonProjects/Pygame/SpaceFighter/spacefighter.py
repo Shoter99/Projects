@@ -9,9 +9,10 @@ HEIGHT = 900
 pygame.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Space Fighter')
 
 
-class Background():
+class Background:
 
     def __init__(self):
         self.bgSurface = pygame.image.load(Join('background.png'))
@@ -24,7 +25,7 @@ class Background():
         screen.blit(self.bgSurface, (0, self.backgroundPos))
 
 
-class Meteor():
+class Meteor:
 
     def __init__(self):
         self.meteorSurface = pygame.image.load(Join('met.png'))
@@ -44,26 +45,29 @@ class Meteor():
     def Display(self):
         screen.blit(self.meteorSurface, self.meteorRect)
 
-    def MoveMeteor(self):
-        self.meteorRect.centery += 2.5
+    def MoveMeteor(self, speed):
+        self.meteorRect.centery += speed
 
-    def __str__():
+    def __str__(self):
         return "Meteor"
 
 
-class Fighter():
+class Fighter:
 
     def __init__(self):
         self.fighterSurface = pygame.transform.scale(
             pygame.image.load(Join('spacecraft.png')), (int(.2*WIDTH), int(.1*HEIGHT)))
         self.fighterRect = self.fighterSurface.get_rect(
             center=(WIDTH/2, .8*HEIGHT))
+        self.speed = 7
+        self.fighterColliderRect = pygame.rect.Rect((5, 0), (5, 5))
 
     def DisplayFighter(self):
         screen.blit(self.fighterSurface, self.fighterRect)
 
     def MoveHorizontal(self, direction):
-        self.fighterRect.centerx += 4*direction
+        self.fighterRect.centerx += self.speed*direction
+        self.fighterColliderRect.topleft = self.fighterRect.center
 
     def FighterOutOfScreen(self):
         if self.fighterRect.left <= 0:
@@ -77,40 +81,66 @@ def DisplayAllMeteors(meteors):
         meteor.Display()
 
 
-def MoveAllMeteors(meteors):
+def MoveAllMeteors(meteors, meteorSpeed):
     for meteor in meteors:
-        meteor.MoveMeteor()
+        meteor.MoveMeteor(meteorSpeed)
 
 
-def OutOfBoundries(meteors):
+def OutOfBoundaries(meteors):
+    global meteorSpeed
     for meteor in meteors:
-        if(meteor.meteorRect.centery > HEIGHT+15):
-            print("Out Of Boundries")
+        if meteor.meteorRect.centery > HEIGHT+15:
+            print("Out Of Boundaries")
             meteors.remove(meteor)
+            meteorSpeed += .05
 
 
 def CheckForCollisions(meteors, player):
     for meteor in meteors:
-        if player.fighterRect.colliderect(meteor.meteorRect):
+        if player.fighterColliderRect.colliderect(meteor.meteorRect):
             return False
     return True
-# variables
 
+
+def DisplayFont(gameActive):
+    if gameActive:
+        scoreSurface = gameFont.render(f'{int(score)}', True, (255, 255, 255))
+        scoreRect = scoreSurface.get_rect(center=(WIDTH/2, 100))
+        screen.blit(scoreSurface, scoreRect)
+    else:
+        scoreSurface = title_gameFont.render(
+            f'Score: {int(score)}', True, (255, 255, 255))
+        scoreRect = scoreSurface.get_rect(center=(WIDTH/2, (HEIGHT/2-100)))
+        screen.blit(scoreSurface, scoreRect)
+
+        high_scoreSurface = title_gameFont.render(
+            f'Highscore: {int(highscore)}', True, (255, 255, 255))
+        high_scoreRect = high_scoreSurface.get_rect(center=(WIDTH/2, HEIGHT/2))
+        screen.blit(high_scoreSurface, high_scoreRect)
+
+
+# variables
+# Font
+gameFont = pygame.font.Font('ZenDots-Regular.ttf', 62)
+title_gameFont = pygame.font.Font('ZenDots-Regular.ttf', 42)
+score = 0
+highscore = 0
 
 meteorList = []
+meteorSpeed = 2.5
 
 SPAWNMETEOR = pygame.USEREVENT
 pygame.time.set_timer(SPAWNMETEOR, 1500)
 
 
 def main():
+    global score
     bg = Background()
     p1 = Fighter()
     spawnTime = 1500
-    gameActive = True
+    gameActive = False
     while True:
         p1.FighterOutOfScreen()
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -119,13 +149,14 @@ def main():
                 meteor = Meteor()
                 meteor.SpawnMeteor()
                 meteorList.append(meteor)
-                spawnTime -= 0.01
-                if spawnTime <= 1200:
-                    spawnTime = 1200
+                spawnTime -= 0.03
+                if spawnTime <= 100:
+                    spawnTime = 100
                 pygame.time.set_timer(SPAWNMETEOR, int(spawnTime))
             if event.type == pygame.KEYDOWN and not gameActive:
                 if event.key == pygame.K_SPACE:
                     meteorList.clear()
+                    score = 0
                     p1.fighterRect.centerx = WIDTH/2
                     gameActive = True
                     pygame.time.set_timer(SPAWNMETEOR, 1500)
@@ -133,9 +164,10 @@ def main():
         bg.DisplayBackground()
         DisplayAllMeteors(meteorList)
         p1.DisplayFighter()
+        DisplayFont(gameActive)
         if gameActive:
-            MoveAllMeteors(meteorList)
-            OutOfBoundries(meteorList)
+            MoveAllMeteors(meteorList, meteorSpeed)
+            OutOfBoundaries(meteorList)
             CheckForCollisions(meteorList, p1)
             key = pygame.key.get_pressed()
             if key[pygame.K_a]:
@@ -143,7 +175,9 @@ def main():
             if key[pygame.K_d]:
                 p1.MoveHorizontal(1)
             gameActive = CheckForCollisions(meteorList, p1)
+            score += .0167
         else:
+            DisplayFont(gameActive)
             pygame.time.set_timer(SPAWNMETEOR, 0)
         pygame.display.update()
         clock.tick(60)
