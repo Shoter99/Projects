@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="about_me">About Me</string>
+    <string name="dawid_roszman">Dawid Roszman</string>
+    <string name="star_image">It is a star Image</string>
+    <string name="bio_text">Hi I am Dawid
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.
+    \n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus lorem in diam sagittis tempor.</string>
+    <string name="what_is_your_nickname">What is your nickname</string>
+</resources>
