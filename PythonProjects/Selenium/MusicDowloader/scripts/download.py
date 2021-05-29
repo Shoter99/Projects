@@ -15,6 +15,15 @@ class Downloader():
         driver = self.driver
         driver.get('https://ytmp3.cc/youtube-to-mp3/')
 
+    def Converted(self):
+        while True:
+            try: 
+                element = driver.find_element_by_xpath('//*[@id="buttons"]/a[1]')
+                return element
+            except:
+                time.wait(5)
+                
+
     def DownloadItem(self, link):
         driver = self.driver
         #convBtn = driver.find_element_by_id('submit')
@@ -22,6 +31,6 @@ class Downloader():
         searchField.send_keys(link)
         searchField.send_keys(Keys.RETURN)
         time.sleep(3)
-        element = driver.find_element_by_xpath('//*[@id="buttons"]/a[1]')
+        element = Converted()
         element.click()
         time.sleep(2)

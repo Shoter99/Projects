@@ -28,4 +28,5 @@ if __name__ == '__main__':
     for link in links:
         downloader.openSite()
         downloader.DownloadItem(link)
+    input()
     driver.close()
